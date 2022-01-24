@@ -24,7 +24,7 @@ const coffeeTheme = responsiveFontSizes(createTheme({
       main: '#5e9ea0',
     },
     success: {
-      main: '#5baea6',
+      main: '#FFFFFF',
     },
   },
   typography: {

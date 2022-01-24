@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {
     AppBar,
     Toolbar,
-    IconButton,
+    Icon,
     Typography,
     Button,
     Grid
@@ -15,9 +15,9 @@ function Nav() {
         <AppBar position="fixed" color="secondary" sx={{ mt: 9 }}>
             <Grid>
                 <Toolbar sx={{ display: "flex", justifyContent:"space-between"}}>
-                    <IconButton>Logo</IconButton>
+                    <Icon>Logo</Icon>
                         {pages.map((page) => (
-                            <Button key={page}>
+                            <Button key={page} color="success">
                                 <Typography textAlign="center">{page}</Typography>
                             </Button>
                         ))}

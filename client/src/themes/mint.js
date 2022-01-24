@@ -9,7 +9,7 @@ const mintTheme = responsiveFontSizes(createTheme({
           main: '#15b097',
         },
         secondary: {
-          main: '#71f79f',
+          main: '#166672',
         },
         error: {
           main: '#b42034',
@@ -21,7 +21,7 @@ const mintTheme = responsiveFontSizes(createTheme({
           main: '#3dd6d0',
         },
         success: {
-          main: '#166672',
+          main: '#71f79f',
         },
         background: {
           default: '#513c2c',
