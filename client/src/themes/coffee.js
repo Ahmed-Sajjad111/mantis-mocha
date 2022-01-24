@@ -8,7 +8,7 @@ const coffeeTheme = responsiveFontSizes(createTheme({
       main: '#7f5234',
     },
     secondary: {
-      main: '#861657',
+      main: '#e4bc84',
     },
     background: {
       default: '#dacfbf',
