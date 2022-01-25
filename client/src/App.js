@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 import { Grid, Container, Paper, AppBar, Toolbar, Typography } from "@mui/material";
@@ -48,15 +48,15 @@ function App() {
                                         },
                                     }}
                                 >
-                                    <MenuItem value={CoffeeTheme}>Creamy Coffee</MenuItem>
-                                    <MenuItem value={MintTheme}>Minty Mocha</MenuItem>
+                                    <MenuItem value={CoffeeTheme} id="coffee">Creamy Coffee</MenuItem>
+                                    <MenuItem value={MintTheme} id="mint">Minty Mocha</MenuItem>
                                 </Select>
                             </FormControl>
                         </Toolbar>
                     </AppBar>
                 </Grid>
                 <Nav />
-                <Paper>Main</Paper>
+                <Paper sx={{ mt: 20 }}>Main</Paper>
                 <Footer />
             </Container>
         </ThemeProvider>
