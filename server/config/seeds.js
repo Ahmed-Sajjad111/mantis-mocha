@@ -322,9 +322,8 @@ db.once('open', async () => {
                 products:[]
             }
         ]
-    }
-    
-    */
+    } 
+    END SHOPPER TEMPLATE */
 
     console.log('--beep boop-- USERS SEEDED --beep boop--');
 
