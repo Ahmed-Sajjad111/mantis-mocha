@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 import { Grid, Container, Paper, AppBar, Toolbar, Typography } from "@mui/material";
