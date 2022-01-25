@@ -1,4 +1,5 @@
 const db = require('./connection');
+const { Shopper, Product, Category } = require('../models');
 
 db.once('open', async () => {
     await Category.deleteMany();
