@@ -35,7 +35,7 @@ export const QUERY_GET_PRODUCTS_BY_CATEGORY = gql`
 }
 `
 
-export const QUERY_GET_PRODUCTS_BY_NAME = gql`
+export const QUERY_GET_PRODUCT_BY_NAME = gql`
   query getProductsByName($name: String){
     products(name: $name){
       _id
@@ -50,6 +50,23 @@ export const QUERY_GET_PRODUCTS_BY_NAME = gql`
       }
     }
   }
+`
+
+export const QUERY_GET_SINGLE_PRODUCT = gql`
+  query getSingleProduct($id: ID!){
+  product(_id :$id){
+		_id
+    name
+    description
+    image
+    price
+    quantity
+    category{
+      _id
+      name
+    }
+  }
+}
 `
 
 export const QUERY_ALL_PRODUCTS = gql`
@@ -69,3 +86,32 @@ export const QUERY_ALL_PRODUCTS = gql`
   }
 `
 
+export const QUERY_GET_SHOPPER_INFO = gql`
+  query shopperInfo{
+  shopper{
+    firstName
+    lastName
+
+    orders{
+      _id
+      purchaseDate
+      products{
+        _id
+        name
+        description
+        image
+        price
+        quantity
+        }
+      }
+    }
+  }
+`
+
+export const QUERY_CHECKOUT = gql`
+  query getCheckout($products: [ID]!) {
+    checkout(products: $products) {
+      session
+    }
+  }
+`;
