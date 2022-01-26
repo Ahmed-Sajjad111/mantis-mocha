@@ -115,8 +115,8 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
-    updateProductQuantity: async (parent, { _id, newQuantity }) => {
-      return await Product.findByIdAndUpdate(_id, {quantity: newQuantity}, { new: true });
+    updateProductQuantity: async (parent, { _id, quantity }) => {
+      return await Product.findByIdAndUpdate(_id, {quantity: quantity}, { new: true });
     },
     login: async (parent, { email, password }) => {
       const shopper = await Shopper.findOne({ email });
