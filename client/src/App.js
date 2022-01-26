@@ -7,6 +7,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
 import CoffeeTheme from "./themes/coffee";
 import MintTheme from "./themes/mint";
+import MantisTheme from "./themes/mantis";
 
 function App() {
     const [theme, setTheme] = useState(CoffeeTheme);
@@ -50,6 +51,7 @@ function App() {
                                 >
                                     <MenuItem value={CoffeeTheme} id="coffee">Creamy Coffee</MenuItem>
                                     <MenuItem value={MintTheme} id="mint">Minty Mocha</MenuItem>
+                                    <MenuItem value={MantisTheme} id="mantis">Mantis Melon</MenuItem>
                                 </Select>
                             </FormControl>
                         </Toolbar>
