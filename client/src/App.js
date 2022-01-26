@@ -7,6 +7,8 @@ import { ThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
 import CoffeeTheme from "./themes/coffee";
 import MintTheme from "./themes/mint";
+import CategorySection from './components/CategorySection';
+
 
 function App() {
     const [theme, setTheme] = useState(CoffeeTheme);
@@ -56,7 +58,7 @@ function App() {
                     </AppBar>
                 </Grid>
                 <Nav />
-                <Paper sx={{ mt: 20 }}>Main</Paper>
+                <CategorySection/>
                 <Footer />
             </Container>
         </ThemeProvider>
