@@ -1,12 +1,39 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { Provider } from 'react-redux'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
+import store from "./utils/store";
 import { Grid, Container, Paper, AppBar, Toolbar, Typography } from "@mui/material";
 import { Select, FormControl, MenuItem, InputLabel } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
 import CoffeeTheme from "./themes/coffee";
 import MintTheme from "./themes/mint";
+
+const httpLink = createHttpLink({
+    uri: '/graphql',
+  });
+  
+  const authLink = setContext((_, { headers }) => {
+    const token = localStorage.getItem('id_token');
+    return {
+      headers: {
+        ...headers,
+        authorization: token ? `Bearer ${token}` : '',
+      },
+    };
+  });
+  
+  const client = new ApolloClient({
+    link: authLink.concat(httpLink),
+    cache: new InMemoryCache(),
+  });
 
 function App() {
     const [theme, setTheme] = useState(CoffeeTheme);
@@ -55,8 +82,22 @@ function App() {
                         </Toolbar>
                     </AppBar>
                 </Grid>
-                <Nav />
-                <Paper sx={{ mt: 20 }}>Main</Paper>
+                <Paper sx={{ mt: 20 }}>
+                <ApolloProvider client={client}>
+                    <Router>
+                        <div>
+                            <Provider store={store}>
+                                <Nav />
+                                <Switch>
+                                    <Route exact path="/" component={Home} />
+                                    <Route exact path="/login" component={Login} />
+                                    <Route exact path="/signup" component={Signup} />
+                                </Switch>
+                            </Provider>
+                        </div>
+                    </Router>
+                </ApolloProvider>
+                </Paper>
                 <Footer />
             </Container>
         </ThemeProvider>
