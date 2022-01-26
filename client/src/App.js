@@ -5,9 +5,10 @@ import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@ap
 import { setContext } from '@apollo/client/link/context';
 import Home from './pages/Home';
 import Login from './pages/Login';
+import Signup from './pages/Signup';
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
-import store from "./utils/store"
+import store from "./utils/store";
 import { Grid, Container, Paper, AppBar, Toolbar, Typography } from "@mui/material";
 import { Select, FormControl, MenuItem, InputLabel } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
@@ -90,6 +91,7 @@ function App() {
                                 <Switch>
                                     <Route exact path="/" component={Home} />
                                     <Route exact path="/login" component={Login} />
+                                    <Route exact path="/signup" component={Signup} />
                                 </Switch>
                             </Provider>
                         </div>
