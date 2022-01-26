@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from 'react-redux';
+import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 
 function Product() {
 

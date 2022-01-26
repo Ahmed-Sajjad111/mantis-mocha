@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AppBar, Toolbar, Icon, Typography, Button, Grid } from "@mui/material";
-
+import { CHANGE_PAGE_THEME } from "../../utils/actions";
 const pages = ["Page 1", "Page 2", "Page 3", "Page 4"];
 
 function Nav() {

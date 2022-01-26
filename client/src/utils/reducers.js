@@ -22,7 +22,7 @@ const State = {
 }
 //
 
-export const reducer = (state, action) => {
+export const reducer = ( state = State, action ) => {
   switch (action.type) {
     case ADD_TO_CART:
       return {
