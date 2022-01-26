@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import Home from './pages/Home';
-// import LoginSignUp from './pages/LoginSignUp'
+import Login from './pages/Login';
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 import store from "./utils/store"
@@ -89,8 +89,7 @@ function App() {
                                 <Nav />
                                 <Switch>
                                     <Route exact path="/" component={Home} />
-                                    {/* <Route exact path="/login" component={LoginSignUp} />
-                                    <Route component={NoMatch} /> */}
+                                    <Route exact path="/login" component={Login} />
                                 </Switch>
                             </Provider>
                         </div>

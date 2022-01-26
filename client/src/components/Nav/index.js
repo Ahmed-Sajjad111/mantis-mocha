@@ -14,8 +14,8 @@ function Nav() {
                         <Button color="success">
                             <Typography textAlign="center"></Typography>
                         </Button>
-                    <Button color="success">
-                        <Typography textAlign="center">Login/Sign-Up</Typography>
+                    <Button href='/login' color="success">
+                        <Typography textAlign="center">Login</Typography>
                     </Button>
                 </Toolbar>
             </Grid>
