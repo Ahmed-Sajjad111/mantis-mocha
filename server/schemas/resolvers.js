@@ -101,7 +101,7 @@ const resolvers = {
       if (context.shopper) {
         const order = new Order({ products });
 
-        await Shopper.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
+        await Shopper.findByIdAndUpdate(context.shopper._id, { $push: { orders: order } });
 
         return order;
       }
@@ -110,7 +110,7 @@ const resolvers = {
     },
     updateShopper: async (parent, args, context) => {
       if (context.shopper) {
-        return await Shopper.findByIdAndUpdate(context.user._id, args, { new: true });
+        return await Shopper.findByIdAndUpdate(context.shopper._id, args, { new: true });
       }
 
       throw new AuthenticationError('Not logged in');
@@ -119,21 +119,21 @@ const resolvers = {
       return await Product.findByIdAndUpdate(_id, {quantity: newQuantity}, { new: true });
     },
     login: async (parent, { email, password }) => {
-      const user = await Shopper.findOne({ email });
+      const shopper = await Shopper.findOne({ email });
 
-      if (!user) {
+      if (!shopper) {
         throw new AuthenticationError('Incorrect credentials');
       }
 
-      const correctPw = await user.isCorrectPassword(password);
+      const correctPw = await shopper.isCorrectPassword(password);
 
       if (!correctPw) {
         throw new AuthenticationError('Incorrect Password');
       }
 
-      const token = signToken(user);
+      const token = signToken(shopper);
 
-      return { token, user };
+      return { token, shopper };
     }
   }
 }
