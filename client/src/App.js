@@ -9,6 +9,7 @@ import CoffeeTheme from "./themes/coffee";
 import MintTheme from "./themes/mint";
 import CategorySection from './components/CategorySection';
 import ProductList from './components/ProductList';
+import SingleProduct from './components/SingleProduct';
 
 function App() {
     const [theme, setTheme] = useState(CoffeeTheme);
@@ -60,6 +61,10 @@ function App() {
                 <Nav />
                 <CategorySection/>
                 <ProductList/>
+                <Paper sx={{mb:2}}>
+                    <Typography variant="h4" align="center">Mantis Mocha (3lbs)</Typography>
+                </Paper>
+                <SingleProduct/>
                 <Footer />
             </Container>
         </ThemeProvider>
