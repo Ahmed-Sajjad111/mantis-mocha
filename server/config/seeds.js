@@ -9,9 +9,10 @@ db.once('open', async () => {
         { name: 'Robusta Coffee' },
         { name: 'Liberica Coffee' },
         { name: 'Excelsa Coffee' },
+        { name: 'Cold Brew Coffee'},
         { name: 'Merchandise' }
     ]);
-
+  
     console.log('--beep boop-- CATEGORIES SEEDED --beep boop--');
 
     await Product.deleteMany();
