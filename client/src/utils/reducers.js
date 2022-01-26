@@ -13,7 +13,13 @@ import {
 } from "./actions";
 
 //add state code here
-
+const State = {
+  products: [],
+  cart: [],
+  cartOpen: false,
+  categories: [],
+  currentCategory: ''
+}
 //
 
 export const reducer = (state, action) => {

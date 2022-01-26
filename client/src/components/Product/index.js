@@ -1,7 +1,10 @@
 import React from "react";
-
+import { useDispatch, useSelector } from 'react-redux';
 
 function Product() {
+
+  const dispatch = useDispatch(); 
+  const state = useSelector(state => state);
 
     return (
         <div className="">
