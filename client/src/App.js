@@ -8,7 +8,7 @@ import { CssBaseline } from "@mui/material";
 import CoffeeTheme from "./themes/coffee";
 import MintTheme from "./themes/mint";
 import CategorySection from './components/CategorySection';
-
+import ProductList from './components/ProductList';
 
 function App() {
     const [theme, setTheme] = useState(CoffeeTheme);
@@ -21,8 +21,8 @@ function App() {
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
-            <Container>
-                <Grid container spacing={2}>
+            <Container maxWidth="xl">
+                <Grid container spacing={2} sx={{ mb:2 }}>
                     <AppBar>
                         <Toolbar>
                             <Typography variant="h2" component="div" sx={{ flexGrow: 1 }}>
@@ -59,6 +59,7 @@ function App() {
                 </Grid>
                 <Nav />
                 <CategorySection/>
+                <ProductList/>
                 <Footer />
             </Container>
         </ThemeProvider>
