@@ -8,6 +8,12 @@ const resolvers = {
     categories: async() => {
       return await Category.find()
     },
+    category: async (parent, { _id }) => {
+      return await Category.findOne({_id})
+    },
+    product: async(parent, {_id}) => {
+      return await Product.findOne({_id})
+    },
     products: async (parent, {category, name}) => {
       const params = {}
 
@@ -37,12 +43,12 @@ const resolvers = {
     },
     order: async (parent, { _id }, context) => {
       if (context.user){
-        const user = await User.findById(context.user._id).populate({
+        const shopper = await Shopper.findById(context.user._id).populate({
           path: 'orders.products',
           populate: 'category'
         })
 
-        return user.orders.id(_id)
+        return shopper.orders.id(_id)
       }
 
       throw new AuthenticationError('Not logged in')
@@ -86,16 +92,16 @@ const resolvers = {
   },
   Mutation: {
     addShopper: async (parent, args) => {
-      const user = await Shopper.create(args);
-      const token = signToken(user);
+      const shopper = await Shopper.create(args);
+      const token = signToken(shopper);
 
-      return { token, user };
+      return { token, shopper };
     },
     addOrder: async (parent, { products }, context) => {
-      if (context.user) {
+      if (context.shopper) {
         const order = new Order({ products });
 
-        await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
+        await Shopper.findByIdAndUpdate(context.shopper._id, { $push: { orders: order } });
 
         return order;
       }
@@ -103,31 +109,31 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
     updateShopper: async (parent, args, context) => {
-      if (context.user) {
-        return await User.findByIdAndUpdate(context.user._id, args, { new: true });
+      if (context.shopper) {
+        return await Shopper.findByIdAndUpdate(context.shopper._id, args, { new: true });
       }
 
       throw new AuthenticationError('Not logged in');
     },
-    updateProductQuantity: async (parent, { _id, newQuantity }) => {
-      return await Product.findByIdAndUpdate(_id, {quantity: newQuantity}, { new: true });
+    updateProductQuantity: async (parent, { _id, quantity }) => {
+      return await Product.findByIdAndUpdate(_id, {quantity: quantity}, { new: true });
     },
     login: async (parent, { email, password }) => {
-      const user = await Shopper.findOne({ email });
+      const shopper = await Shopper.findOne({ email });
 
-      if (!user) {
+      if (!shopper) {
         throw new AuthenticationError('Incorrect credentials');
       }
 
-      const correctPw = await user.isCorrectPassword(password);
+      const correctPw = await shopper.isCorrectPassword(password);
 
       if (!correctPw) {
         throw new AuthenticationError('Incorrect Password');
       }
 
-      const token = signToken(user);
+      const token = signToken(shopper);
 
-      return { token, user };
+      return { token, shopper };
     }
   }
 }
