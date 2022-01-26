@@ -43,12 +43,12 @@ const resolvers = {
     },
     order: async (parent, { _id }, context) => {
       if (context.user){
-        const user = await User.findById(context.user._id).populate({
+        const shopper = await Shopper.findById(context.user._id).populate({
           path: 'orders.products',
           populate: 'category'
         })
 
-        return user.orders.id(_id)
+        return shopper.orders.id(_id)
       }
 
       throw new AuthenticationError('Not logged in')
@@ -98,10 +98,10 @@ const resolvers = {
       return { token, shopper };
     },
     addOrder: async (parent, { products }, context) => {
-      if (context.user) {
+      if (context.shopper) {
         const order = new Order({ products });
 
-        await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
+        await Shopper.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
 
         return order;
       }
@@ -109,8 +109,8 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
     updateShopper: async (parent, args, context) => {
-      if (context.user) {
-        return await User.findByIdAndUpdate(context.user._id, args, { new: true });
+      if (context.shopper) {
+        return await Shopper.findByIdAndUpdate(context.user._id, args, { new: true });
       }
 
       throw new AuthenticationError('Not logged in');
