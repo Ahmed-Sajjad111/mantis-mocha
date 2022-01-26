@@ -7,15 +7,15 @@ function Nav() {
     return (
         <AppBar position="fixed" color="secondary" sx={{ mt: 9, width: "100%" }}>
             <Grid>
-                <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-                    <Icon>Logo</Icon>
-                    {pages.map((page) => (
-                        <Button key={page} color="success">
-                            <Typography textAlign="center">{page}</Typography>
+                <Toolbar sx={{ display: "flex", justifyContent: "flex-end" }}>
+                        <Button color="success">
+                            <Typography textAlign="center">Order History</Typography>
                         </Button>
-                    ))}
+                        <Button color="success">
+                            <Typography textAlign="center"></Typography>
+                        </Button>
                     <Button color="success">
-                        <Typography textAlign="center">Login</Typography>
+                        <Typography textAlign="center">Login/Sign-Up</Typography>
                     </Button>
                 </Toolbar>
             </Grid>
