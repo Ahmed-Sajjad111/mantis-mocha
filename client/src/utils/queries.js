@@ -1,5 +1,7 @@
 import { gql } from '@apollo/client';
 
+
+
 export const QUERY_GET_PRODUCTS_BY_CATEGORY= gql`
   query getProductsByCategory($category: ID){
   products(category: $category){
@@ -50,3 +52,4 @@ export const QUERY_ALL_PRODUCTS = gql`
     }
   }
 `
+

@@ -8,6 +8,9 @@ const resolvers = {
     categories: async() => {
       return await Category.find()
     },
+    category: async (parent, { _id }) => {
+      return await Category.findOne({_id})
+    },
     product: async(parent, {_id}) => {
       return await Product.findOne({_id})
     },
