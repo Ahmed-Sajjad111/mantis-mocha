@@ -92,10 +92,10 @@ const resolvers = {
   },
   Mutation: {
     addShopper: async (parent, args) => {
-      const user = await Shopper.create(args);
-      const token = signToken(user);
+      const shopper = await Shopper.create(args);
+      const token = signToken(shopper);
 
-      return { token, user };
+      return { token, shopper };
     },
     addOrder: async (parent, { products }, context) => {
       if (context.user) {
