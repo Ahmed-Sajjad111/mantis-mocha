@@ -3,7 +3,7 @@
 # Mantis Mocha
 ![image](https://user-images.githubusercontent.com/88279562/151420030-26d8d93a-95c3-45ec-8f1b-ce2583b30f38.jpg)
 
-### *Wake up, and smell the coffee!*
+### *Wake up, and smell the coffee! ☕*
   
 * [Link](#heroku-link)
 * [Technologies](#technologies-and-frameworks)
@@ -53,4 +53,4 @@
   Ahmed Sajjad, Mark Carriveau, Benjamin Paulat, Tom Cole, Collin Whalen 
 
   ## Questions? Contact Us!:
-  [Mantis Mocha Contact Us](Placeholder URl)
+  [Mantis Mocha Contact Us](mailto: Placeholder URl)
