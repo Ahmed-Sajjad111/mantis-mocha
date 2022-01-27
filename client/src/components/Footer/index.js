@@ -1,7 +1,5 @@
 import React from "react";
 import { Typography, Paper, Grid, Stack, Avatar } from "@mui/material";
-import { withStyles } from "@mui/material";
-
 
 function Footer() {
     return (

@@ -9,7 +9,7 @@ import Signup from './pages/Signup';
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 import store from "./utils/store";
-import { Grid, Container, Paper, AppBar, Toolbar, Typography } from "@mui/material";
+import { Grid, Container, AppBar, Toolbar, Typography } from "@mui/material";
 import { Select, FormControl, MenuItem, InputLabel } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";

@@ -1,6 +1,7 @@
 import React from "react";
 import Auth from "../../utils/auth";
 import { AppBar, Toolbar, Avatar, Typography, Button, Grid, Tooltip } from "@mui/material";
+import mochaMantis from "../../themes/mocha.png";
 
 function Nav() {
     function navHandler() {
@@ -31,7 +32,7 @@ function Nav() {
                 <Grid container>
                     <Grid item xs={2}>
                         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-                            <Tooltip title="Mocha the Mantis has curated a premium selection of coffees you're sure to enjoy!">
+                            <Tooltip title="Mocha the Mantis is excited for you to see what he has to offer!">
                                 <Avatar sx={{ border: 1, borderColor: "primary" }} variant="square" src={mochaMantis} />
                             </Tooltip>
                         </Toolbar>
