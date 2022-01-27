@@ -45,9 +45,14 @@ function Login(props) {
                 px: 4,
             }}
         >
-            <Link to="/signup" style={{ textDecoration: 'none'}}>
-                <Button variant="contained" color="info" sx={{my: 2, mx: "auto" }} ><ArrowCircleLeftIcon /> Go to Signup</Button>
+            <Link to="/signup" style={{ textDecoration: "none" }}>
+                <Button variant="contained" color="info" sx={{ my: 2, mx: "auto" }}>
+                    <ArrowCircleLeftIcon /> Go to Signup
+                </Button>
             </Link>
+            <Typography align="center" variant="h3" component="div" sx={{ my: 2 }}>
+                Login
+            </Typography>
             <FormControl sx={{ my: 2 }} variant="outlined">
                 <TextField
                     label="Email"
@@ -58,9 +63,7 @@ function Login(props) {
                     id="email"
                     onChange={handleChange}
                     sx={{ width: "90%", mx: "auto" }}
-                >
-                    Input
-                </TextField>
+                />
             </FormControl>
             <FormControl sx={{ my: 2 }}>
                 <TextField
@@ -73,18 +76,27 @@ function Login(props) {
                     variant="outlined"
                     onChange={handleChange}
                     sx={{ width: "90%", mx: "auto" }}
-                >
-                    Input
-                </TextField>
+                />
             </FormControl>
             {error ? (
                 <Slide direction="up" in={error}>
-                    <Typography align="center" variant="h6" component="div" className="error-text" sx={{ my: 2, color: "red" }}>
+                    <Typography
+                        align="center"
+                        variant="h6"
+                        component="div"
+                        className="error-text"
+                        sx={{ my: 2, color: "red" }}
+                    >
                         The provided credentials are incorrect
                     </Typography>
                 </Slide>
             ) : null}
-            <Button variant="contained" onClick={handleFormSubmit} sx={{ my: 2, width: "30%", mx: "auto" }} color="info">
+            <Button
+                variant="contained"
+                onClick={handleFormSubmit}
+                sx={{ my: 2, width: "30%", mx: "auto" }}
+                color="info"
+            >
                 Submit
             </Button>
         </Box>
