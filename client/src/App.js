@@ -17,6 +17,7 @@ import { useDispatch, useSelector} from 'react-redux';
 import { CHANGE_PAGE_THEME } from "./utils/actions";
 import CoffeeTheme from "./themes/coffee";
 import MintTheme from "./themes/mint";
+import IceTheme from "./themes/ice";
 // import CategorySection from './components/CategorySection';
 // import ProductList from './components/ProductList';
 // import SingleProduct from './components/SingleProduct';
@@ -60,6 +61,12 @@ function App() {
                 theme: CoffeeTheme
             })
         }
+        if(newTheme === IceTheme){
+            return dispatch({
+                type: CHANGE_PAGE_THEME,
+                theme: IceTheme
+            })
+        }
         else{
             return dispatch({
                 type: CHANGE_PAGE_THEME,
@@ -97,6 +104,7 @@ function App() {
                                 >
                                     <MenuItem value={CoffeeTheme} id="coffee">Creamy Coffee</MenuItem>
                                     <MenuItem value={MintTheme} id="mint">Minty Mocha</MenuItem>
+                                    <MenuItem value={IceTheme} id="ice">Ice Coffee</MenuItem>
                                 </Select>
                             </FormControl>
                         </Toolbar>

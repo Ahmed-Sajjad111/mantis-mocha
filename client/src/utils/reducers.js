@@ -14,7 +14,6 @@ import {
 
 import CoffeeTheme from '../themes/coffee'
 
-
 // initial state
 const State = {
   products: [],
