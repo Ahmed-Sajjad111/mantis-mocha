@@ -17,11 +17,7 @@ import { useDispatch, useSelector} from 'react-redux';
 import { CHANGE_PAGE_THEME } from "./utils/actions";
 import CoffeeTheme from "./themes/coffee";
 import MintTheme from "./themes/mint";
-<<<<<<< HEAD
-// import OrderHistory from './components/OrderHistory';
-=======
 import IceTheme from "./themes/ice";
->>>>>>> develop
 // import CategorySection from './components/CategorySection';
 // import ProductList from './components/ProductList';
 // import SingleProduct from './components/SingleProduct';
