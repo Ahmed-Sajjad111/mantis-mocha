@@ -104,7 +104,7 @@ function App() {
                                 >
                                     <MenuItem value={CoffeeTheme} id="coffee">Creamy Coffee</MenuItem>
                                     <MenuItem value={MintTheme} id="mint">Minty Mocha</MenuItem>
-                                    <MenuItem value={IceTheme} id="ice">Ice Coffee</MenuItem>
+                                    <MenuItem value={IceTheme} id="ice">Icy Coffee</MenuItem>
                                 </Select>
                             </FormControl>
                         </Toolbar>
