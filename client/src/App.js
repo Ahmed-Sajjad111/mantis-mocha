@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Provider } from 'react-redux'
+import React from "react";
+
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
@@ -8,11 +8,13 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
-import store from "./utils/store";
+
 import { Grid, Container, AppBar, Toolbar, Typography } from "@mui/material";
 import { Select, FormControl, MenuItem, OutlinedInput, InputLabel } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
+import { useDispatch, useSelector} from 'react-redux';
+import { CHANGE_PAGE_THEME } from "./utils/actions";
 import CoffeeTheme from "./themes/coffee";
 import MintTheme from "./themes/mint";
 // import CategorySection from './components/CategorySection';
@@ -39,15 +41,36 @@ const httpLink = createHttpLink({
   });
 
 function App() {
-    const [theme, setTheme] = useState(CoffeeTheme);
+    const dispatch = useDispatch()
+    const state = useSelector(state => state)
+
 
     const handleChange = (event) => {
-        setTheme(event.target.value);
+        const newTheme = event.target.value
+
+        if(newTheme === MintTheme){
+           return dispatch({
+                type: CHANGE_PAGE_THEME,
+                theme: MintTheme
+            })
+        }
+        if(newTheme === CoffeeTheme){
+           return dispatch({
+                type: CHANGE_PAGE_THEME,
+                theme: CoffeeTheme
+            })
+        }
+        else{
+            return dispatch({
+                type: CHANGE_PAGE_THEME,
+                theme: CoffeeTheme
+            })
+        }
         //need to add localstorage save to keep persistence
     };
 
     return (
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={state.theme}>
             <CssBaseline />
             <Container maxWidth="xl">
                 <Grid container spacing={2} sx={{ mb:2 }}>
@@ -61,7 +84,7 @@ function App() {
                                 <Select
                                     labelId="select-theme-label"
                                     id="select-theme"
-                                    value={theme}
+                                    value={state.theme}
                                     onChange={handleChange}
                                     variant="outlined"
                                     input={ 
@@ -82,14 +105,12 @@ function App() {
                 <ApolloProvider client={client}>
                     <Router>
                         <div>
-                            <Provider store={store}>
-                                <Nav />
-                                <Switch>
-                                    <Route exact path="/" component={Home} />
-                                    <Route exact path="/login" component={Login} />
-                                    <Route exact path="/signup" component={Signup} />
-                                </Switch>
-                            </Provider>
+                            <Nav />
+                            <Switch>
+                                <Route exact path="/" component={Home} />
+                                <Route exact path="/login" component={Login} />
+                                <Route exact path="/signup" component={Signup} />
+                            </Switch>
                         </div>
                     </Router>
                 </ApolloProvider>
