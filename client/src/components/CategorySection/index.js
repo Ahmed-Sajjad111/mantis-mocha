@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Grid, Paper, Button, Typography } from "@mui/material";
+import { Box, Button,  } from "@mui/material";
 import { useQuery } from '@apollo/client';
 import {
   UPDATE_CATEGORIES,
@@ -48,8 +48,7 @@ function CategorySection() {
   };
 
   return (
-    <Grid>
-      <Paper
+    <Box
         sx={{
           mt: 20,
           display: "flex",
@@ -63,14 +62,13 @@ function CategorySection() {
             onClick={() => {
               handleClick(categories._id);
             }}
-            key={categories}
+            key={categories.name}
             color="success"
           >
-            <Typography textAlign="center">{categories}</Typography>
+            {categories.name}
           </Button>
         ))}
-      </Paper>
-    </Grid>
+      </Box>
   );
 }
 
