@@ -15,6 +15,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
 import CoffeeTheme from "./themes/coffee";
 import MintTheme from "./themes/mint";
+import OrderHistory from './components/OrderHistory';
 // import CategorySection from './components/CategorySection';
 // import ProductList from './components/ProductList';
 // import SingleProduct from './components/SingleProduct';
@@ -93,6 +94,7 @@ function App() {
                         </div>
                     </Router>
                 </ApolloProvider>
+                <OrderHistory />
                 <Footer />
             </Container>
         </ThemeProvider>
