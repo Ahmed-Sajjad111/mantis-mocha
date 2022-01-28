@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { Card, CardMedia, CardContent, Typography, CardActions, Button } from "@mui/material";
-// import Cart from '../components/Cart';
+import Cart from '../components/Cart';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   REMOVE_FROM_CART,
@@ -114,7 +114,7 @@ function SingleProduct() {
         </Card>
       ) : null}
       {/* {loading ? <img src={mantis-loading} alt="loading" /> : null} */}
-      {/* <Cart /> */}
+      <Cart />
     </>
   )
 }
