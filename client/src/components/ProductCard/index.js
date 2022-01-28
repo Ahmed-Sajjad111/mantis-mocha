@@ -53,9 +53,9 @@ function ProductCard(item) {
                     Consciousness consists of sub-atomic particles of quantum energy. “Quantum” means a maturing of the holistic.
                     You must take a stand against pain. Desire is the antithesis of life-force.
                     Illusion is born in the gap where energy has been excluded.</Typography>
+            <Typography variant="body1" component="div" sx={{ mt:1}}>{quantity} {pluralize("item", quantity)} in stock</Typography>
+            <Typography variant="body2" component="div">${price}</Typography>
             </CardContent>
-            <div>{quantity} {pluralize("item", quantity)} in stock</div>
-            <span>${price}</span>
             <CardActions>
                 <Link to={`/products/${_id}`}>
                     <Button>Details</Button>
