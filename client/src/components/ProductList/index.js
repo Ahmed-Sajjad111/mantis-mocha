@@ -66,7 +66,7 @@ function ProductList() {
                     ))}
                 </Grid>
             ) : (
-                <h3>No Products!</h3>
+                <Typography variant="h3" component="div" align="center">No Products!</Typography>
             )}
             {/* {loading ? <img src={mantis} alt="mantis loading" /> 
                 : null} */}
