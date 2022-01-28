@@ -27,28 +27,28 @@ function OrderHistory() {
                         color: "success.primary"
                     }}
                 >
-                    <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", width: "20%" }}>
-                        <Typography>Order Date:</Typography>
-                        <Typography>1/1/1911</Typography>
+                    <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "left", width: "80%" }}>
+                        <Typography>Date:</Typography>
+                        <Typography sx={{ml:1}}>1/1/1911</Typography>
                     </Box>
                     <Box
                         sx={{
                             display: "flex",
                             flexDirection: "row",
-                            justifyContent: "space-between",
-                            width: "20%",
+                            justifyContent: "left",
+                            width: "80%",
                             mb: 2,
                         }}
                     >
                         <Typography>Price: </Typography>
-                        <Typography>$32.44</Typography>
+                        <Typography sx={{ml:1}}>$32.44</Typography>
                     </Box>
                     <Divider />
                     <Box sx={{ display: "flex", flexDirection: "row", width: "80%" }}>
                         <Typography align="center" component="div" sx={{mx: "auto", mb: 2}}>Items Ordered:</Typography>
                     </Box>
                     <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", width: "80%" }}>
-                        <Grid container xs={12} alignItems="center" spacing={2}>
+                        <Grid container alignItems="center" spacing={2}>
                             <Grid item xs={4}>
                                 Item Name:
                             </Grid>
@@ -125,28 +125,28 @@ function OrderHistory() {
                         color: "success.primary"
                     }}
                 >
-                    <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", width: "20%" }}>
+                    <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", width: "80%" }}>
                         <Typography>Order Date:</Typography>
-                        <Typography>1/2/1911</Typography>
+                        <Typography sx={{ml:1}}>1/2/1911</Typography>
                     </Box>
                     <Box
                         sx={{
                             display: "flex",
                             flexDirection: "row",
                             justifyContent: "space-between",
-                            width: "20%",
+                            width: "80%",
                             mb: 2,
                         }}
                     >
                         <Typography>Price: </Typography>
-                        <Typography>$2.44</Typography>
+                        <Typography sx={{ml:1}}>$2.44</Typography>
                     </Box>
                     <Divider />
                     <Box sx={{ display: "flex", flexDirection: "row", width: "80%" }}>
                         <Typography align="center" component="div" sx={{mx: "auto", mb: 2}}>Items Ordered:</Typography>
                     </Box>
                     <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", width: "80%" }}>
-                        <Grid container xs={12} alignItems="center" spacing={2}>
+                        <Grid container alignItems="center" spacing={2}>
                             <Grid item xs={4}>
                                 Item Name:
                             </Grid>
