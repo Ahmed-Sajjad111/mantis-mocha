@@ -28,7 +28,7 @@ export const ADDSHOPPER = gql`
   } 
 `
 
-export const UPDATESHOPPPER = gql`
+export const UPDATESHOPPER = gql`
    mutation  updateShopper($firstName: String, $lastName: String, $email: String, $password: String){
   updateShopper(firstName: $firstName, lastName: $lastName, email: $email, password: $password){
       firstName
