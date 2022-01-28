@@ -13,10 +13,16 @@ import {
 } from "./actions";
 
 //add state code here
-
+const State = {
+  products: [],
+  cart: [],
+  cartOpen: false,
+  categories: [],
+  currentCategory: ''
+}
 //
 
-export const reducer = (state, action) => {
+export const reducer = ( state = State, action ) => {
   switch (action.type) {
     case ADD_TO_CART:
       return {
