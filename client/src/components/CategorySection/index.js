@@ -1,22 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Grid, Paper, Button, Typography } from "@mui/material";
+import { useQuery } from '@apollo/client';
 import {
   UPDATE_CATEGORIES,
   UPDATE_CURRENT_CATEGORY,
 } from "../../utils/actions";
 import { 
-  GET_ALL_CATEGORIES,
-  GET_SINGLE_CATEGORY 
+  GET_ALL_CATEGORIES
 } from "../../utils/queries";
-
-const categories = [
-  "Category 1",
-  "Category 2",
-  "Category 3",
-  "Category 4",
-  "Category 5",
-];
+import { idbPromise } from '../../utils/helpers';
 
 function CategorySection() {
   const dispatch = useDispatch();
@@ -25,8 +18,7 @@ function CategorySection() {
   const { categories } = state;
 
   const { loading, data: categoryData } = useQuery(
-    GET_ALL_CATEGORIES,
-    GET_SINGLE_CATEGORY
+    GET_ALL_CATEGORIES
   );
 
   useEffect(() => {
@@ -81,24 +73,5 @@ function CategorySection() {
     </Grid>
   );
 }
-
-/*
-  return (
-    <section>
-      <h2>Coffee Categories</h2>
-      <ul>
-        <li>
-          <a href=""></a>
-        </li>
-        <li>
-          <a href=""></a>
-        </li>
-        <li>
-          <a href=""></a>
-        </li>
-      </ul>
-    </section>
-  );
-*/
 
 export default CategorySection;
