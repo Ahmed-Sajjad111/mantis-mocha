@@ -3,7 +3,7 @@ import { Typography, Paper, Grid, Stack, Avatar } from "@mui/material";
 
 function Footer() {
     return (
-        <Paper sx={{ bottom: 0, position: "fixed", width: "100%", right: 0 }}>
+        <Paper sx={{ bottom: 0, position: "fixed", width: "100%", right: 0, bgcolor: 'primary.main', }}>
             <Grid container spacing={2}>
                 <Grid item xs={7}>
                     <Typography variant="h4" mt={1} ml={1}>
