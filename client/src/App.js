@@ -11,7 +11,7 @@ import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 
 import { Grid, Container, AppBar, Toolbar, Typography } from "@mui/material";
-import { Select, FormControl, MenuItem, OutlinedInput, InputLabel } from "@mui/material";
+import { FormControl, MenuItem, TextField, InputLabel } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
 import { useDispatch, useSelector} from 'react-redux';
@@ -90,26 +90,23 @@ function App() {
                                 The Coffee Shop
                             </Typography>
                             <FormControl variant="outlined" sx={{ width: "15%" }}>
-                                <InputLabel shrink htmlFor="select-theme">Choose Theme:</InputLabel>
-                                <Select
-                                    labelId="select-theme-label"
+                            <InputLabel htmlFor="select-theme" shrink sx={{ color: "success.main" }}>Choose Theme:</InputLabel>
+                                <TextField
                                     id="select-theme"
+                                    labelId="select-theme-label"
                                     value={state.theme}
                                     onChange={handleChange}
-                                    variant="outlined"
-                                    input={ 
-                                        <OutlinedInput
-                                            labelwidth={20}
-                                            notched={true}
-                                            shrink="true"
-                                        />
-                                    }
+                                    select
+                                    variant="filled"
+                                    margin="none"
+                                    size="small"
+                                    SelectProps={{ sx: { color: "success.main"} }}
                                 >
                                     <MenuItem value={CoffeeTheme} id="coffee">Creamy Coffee</MenuItem>
                                     <MenuItem value={MintTheme} id="mint">Minty Mocha</MenuItem>
                                     <MenuItem value={IceTheme} id="ice">Icy Coffee</MenuItem>
                                     <MenuItem value={DarkBrewTheme} id="ice">Dark Brew</MenuItem>
-                                </Select>
+                                </TextField>
                             </FormControl>
                         </Toolbar>
                     </AppBar>
