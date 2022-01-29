@@ -1,0 +1,84 @@
+import React from "react";
+import { Grid, AppBar, Toolbar, Typography } from "@mui/material";
+import { FormControl, MenuItem, TextField, InputLabel } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { CHANGE_PAGE_THEME } from "../../utils/actions";
+import { Link } from "react-router-dom";
+import CoffeeTheme from "../../themes/coffee";
+import MintTheme from "../../themes/mint";
+import IceTheme from "../../themes/ice";
+import DarkBrewTheme from "../../themes/dark";
+
+
+
+function Header() {
+  const dispatch = useDispatch()
+  const state = useSelector(state => state)
+
+  const handleChange = (event) => {
+    const newTheme = event.target.value
+
+    switch(newTheme){
+      case MintTheme:
+        return dispatch({
+          type: CHANGE_PAGE_THEME,
+          theme: MintTheme
+        });
+      case CoffeeTheme:
+        return dispatch({
+          type: CHANGE_PAGE_THEME,
+          theme: CoffeeTheme
+        });
+      case IceTheme:
+        return dispatch({
+          type: CHANGE_PAGE_THEME,
+          theme: IceTheme
+        });
+      case DarkBrewTheme:
+        return dispatch({
+          type: CHANGE_PAGE_THEME,
+          theme: DarkBrewTheme
+        });
+      default:
+        return dispatch({
+          type: CHANGE_PAGE_THEME,
+          theme: CoffeeTheme
+      })
+    }
+  };
+
+  return (
+    <Grid container spacing={2} sx={{ mb:2 }}>
+      <AppBar>
+          <Toolbar>
+              <Typography variant="h2" component="div" sx={{ flexGrow: 1 }}>
+                  <Link to='/' style={{ textDecoration: "none", color: 'InfoText'}}>
+                    Mantis Mocha
+                  </Link>
+              </Typography>
+              <FormControl variant="outlined" sx={{ width: "15%", mr: 6 }}>
+              <InputLabel htmlFor="select-theme" shrink sx={{ color: "success.main" }}>Choose Theme:</InputLabel>
+                  <TextField
+                      id="select-theme"
+                      value={state.theme}
+                      onChange={handleChange}
+                      select
+                      variant="filled"
+                      margin="none"
+                      size="small"
+                      SelectProps={{ sx: { color: "success.main"} }}
+                  >
+                      <MenuItem value={CoffeeTheme} id="coffee">Creamy Coffee</MenuItem>
+                      <MenuItem value={MintTheme} id="mint">Minty Mocha</MenuItem>
+                      <MenuItem value={IceTheme} id="ice">Icy Coffee</MenuItem>
+                      <MenuItem value={DarkBrewTheme} id="ice">Dark Brew</MenuItem>
+                  </TextField>
+              </FormControl>
+          </Toolbar>
+      </AppBar>
+    </Grid>
+  )
+}
+
+
+export default Header
