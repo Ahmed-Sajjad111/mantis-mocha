@@ -254,7 +254,7 @@ db.once('open', async () => {
             name: "Mocha Mantis Sticker",
             category: categories[5]._id,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas fugit quidem quis voluptatem dolore ea doloremque illum ut rem, minus delectus dolorem vel sint inventore saepe facere aut! Ea, modi!',
-            image: 'MochaSticker.jpg',
+            image: 'MochaSticker.png',
             price: 5.99,
             quantity: 100
         }
