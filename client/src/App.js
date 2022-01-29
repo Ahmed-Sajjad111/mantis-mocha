@@ -1,11 +1,12 @@
 import React from "react";
-
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import SingleProduct from './pages/SingleProduct';
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 
@@ -18,9 +19,8 @@ import { CHANGE_PAGE_THEME } from "./utils/actions";
 import CoffeeTheme from "./themes/coffee";
 import MintTheme from "./themes/mint";
 import IceTheme from "./themes/ice";
-// import CategorySection from './components/CategorySection';
-// import ProductList from './components/ProductList';
-// import SingleProduct from './components/SingleProduct';
+import DarkBrewTheme from "./themes/dark";
+
 
 const httpLink = createHttpLink({
     uri: '/graphql',
@@ -49,31 +49,34 @@ function App() {
     const handleChange = (event) => {
         const newTheme = event.target.value
 
-        if(newTheme === MintTheme){
-           return dispatch({
-                type: CHANGE_PAGE_THEME,
-                theme: MintTheme
-            })
-        }
-        if(newTheme === CoffeeTheme){
-           return dispatch({
+        switch(newTheme){
+            case MintTheme:
+                return dispatch({
+                    type: CHANGE_PAGE_THEME,
+                    theme: MintTheme
+                });
+            case CoffeeTheme:
+                return dispatch({
+                    type: CHANGE_PAGE_THEME,
+                    theme: CoffeeTheme
+                });
+            case IceTheme:
+                return dispatch({
+                    type: CHANGE_PAGE_THEME,
+                    theme: IceTheme
+                });
+            case DarkBrewTheme:
+                return dispatch({
+                    type: CHANGE_PAGE_THEME,
+                    theme: DarkBrewTheme
+                });
+            default:
+                return dispatch({
                 type: CHANGE_PAGE_THEME,
                 theme: CoffeeTheme
             })
         }
-        if(newTheme === IceTheme){
-            return dispatch({
-                type: CHANGE_PAGE_THEME,
-                theme: IceTheme
-            })
-        }
-        else{
-            return dispatch({
-                type: CHANGE_PAGE_THEME,
-                theme: CoffeeTheme
-            })
-        }
-        //need to add localstorage save to keep persistence
+
     };
 
     return (
@@ -105,6 +108,7 @@ function App() {
                                     <MenuItem value={CoffeeTheme} id="coffee">Creamy Coffee</MenuItem>
                                     <MenuItem value={MintTheme} id="mint">Minty Mocha</MenuItem>
                                     <MenuItem value={IceTheme} id="ice">Icy Coffee</MenuItem>
+                                    <MenuItem value={DarkBrewTheme} id="ice">Dark Brew</MenuItem>
                                 </Select>
                             </FormControl>
                         </Toolbar>
@@ -118,6 +122,7 @@ function App() {
                                 <Route exact path="/" component={Home} />
                                 <Route exact path="/login" component={Login} />
                                 <Route exact path="/signup" component={Signup} />
+                                <Route exact path="/products/:id" component={SingleProduct} />
                             </Switch>
                         </div>
                     </Router>

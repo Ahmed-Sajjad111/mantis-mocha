@@ -12,7 +12,7 @@ function ProductCard(item) {
     const selectState = state => state
     const state = useSelector(selectState)
 
-    const { image, name, _id, price, quantity } = item
+    const { image, name, _id, price, quantity, description } = item
 
     const { cart } = state
 
@@ -48,13 +48,12 @@ function ProductCard(item) {
                 sx={{ borderBottom: 2 }}
             />
             <CardContent>
-                <Typography gutterBottom variant="h5" component="div">{name}</Typography>
-                <Typography variant="body2" color="text.secondary">We exist, we dream, we are reborn. To roam the mission is to become one with it.
-                    Consciousness consists of sub-atomic particles of quantum energy. “Quantum” means a maturing of the holistic.
-                    You must take a stand against pain. Desire is the antithesis of life-force.
-                    Illusion is born in the gap where energy has been excluded.</Typography>
-            <Typography variant="body1" component="div" sx={{ mt:1}}>{quantity} {pluralize("item", quantity)} in stock</Typography>
-            <Typography variant="body2" component="div">${price}</Typography>
+                <Typography gutterBottom variant="h5" component="div">
+                    {name}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                    {description}
+                </Typography>
             </CardContent>
             <CardActions>
                 <Link to={`/products/${_id}`}>
