@@ -50,10 +50,10 @@ function App() {
                     <div>
                         <Nav />
                         <Switch>
-                            <Route exact path="/" component={Home} />
-                            <Route  path="/login" component={Login} />
-                            <Route  path="/signup" component={Signup} />
-                            <Route  path="/products/:id" component={SingleProduct} />
+                            <Route  exact path="/" component={Home} />
+                            <Route  excat path="/login" component={Login} />
+                            <Route  excat path="/signup" component={Signup} />
+                            <Route  excat path="/products/:id" component={SingleProduct} />
                         </Switch>
                     </div>
                     <Footer />

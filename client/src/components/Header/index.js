@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, AppBar, Toolbar, Typography } from "@mui/material";
+import { Grid, AppBar, Toolbar, Typography, Button } from "@mui/material";
 import { FormControl, MenuItem, TextField, InputLabel } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { CHANGE_PAGE_THEME } from "../../utils/actions";
@@ -50,31 +50,35 @@ function Header() {
   return (
     <Grid container spacing={2} sx={{ mb:2 }}>
       <AppBar>
-          <Toolbar>
-              <Typography variant="h2" component="div" sx={{ flexGrow: 1 }}>
-                  <Link to='/' style={{ textDecoration: "none", color: 'InfoText'}}>
-                    Mantis Mocha
-                  </Link>
-              </Typography>
-              <FormControl variant="outlined" sx={{ width: "15%", mr: 6 }}>
-              <InputLabel htmlFor="select-theme" shrink sx={{ color: "success.main" }}>Choose Theme:</InputLabel>
-                  <TextField
-                      id="select-theme"
-                      value={state.theme}
-                      onChange={handleChange}
-                      select
-                      variant="filled"
-                      margin="none"
-                      size="small"
-                      SelectProps={{ sx: { color: "success.main"} }}
-                  >
-                      <MenuItem value={CoffeeTheme} id="coffee">Creamy Coffee</MenuItem>
-                      <MenuItem value={MintTheme} id="mint">Minty Mocha</MenuItem>
-                      <MenuItem value={IceTheme} id="ice">Icy Coffee</MenuItem>
-                      <MenuItem value={DarkBrewTheme} id="ice">Dark Brew</MenuItem>
-                  </TextField>
-              </FormControl>
-          </Toolbar>
+        <Toolbar>
+        <Typography component="div" sx={{ flexGrow: 1 }}>
+          <Link to='/' style={{ textDecoration: "none"}}>
+            <Button color="success">
+              <Typography variant="h2">
+                Mantis Mocha
+              </Typography> 
+            </Button>
+            </Link>
+          </Typography>
+        <FormControl variant="outlined" sx={{ width: "15%", mr: 6 }}>
+        <InputLabel htmlFor="select-theme" shrink sx={{ color: "success.main" }}>Choose Theme:</InputLabel>
+            <TextField
+                id="select-theme"
+                value={state.theme}
+                onChange={handleChange}
+                select
+                variant="filled"
+                margin="none"
+                size="small"
+                SelectProps={{ sx: { color: "success.main"} }}
+            >
+                <MenuItem value={CoffeeTheme} id="coffee">Creamy Coffee</MenuItem>
+                <MenuItem value={MintTheme} id="mint">Minty Mocha</MenuItem>
+                <MenuItem value={IceTheme} id="ice">Icy Coffee</MenuItem>
+                <MenuItem value={DarkBrewTheme} id="ice">Dark Brew</MenuItem>
+            </TextField>
+        </FormControl>
+        </Toolbar>
       </AppBar>
     </Grid>
   )
