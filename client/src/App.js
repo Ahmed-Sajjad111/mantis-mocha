@@ -19,6 +19,8 @@ import { CHANGE_PAGE_THEME } from "./utils/actions";
 import CoffeeTheme from "./themes/coffee";
 import MintTheme from "./themes/mint";
 import IceTheme from "./themes/ice";
+import DarkBrewTheme from "./themes/dark";
+
 
 const httpLink = createHttpLink({
     uri: '/graphql',
@@ -47,31 +49,34 @@ function App() {
     const handleChange = (event) => {
         const newTheme = event.target.value
 
-        if(newTheme === MintTheme){
-           return dispatch({
-                type: CHANGE_PAGE_THEME,
-                theme: MintTheme
-            })
-        }
-        if(newTheme === CoffeeTheme){
-           return dispatch({
+        switch(newTheme){
+            case MintTheme:
+                return dispatch({
+                    type: CHANGE_PAGE_THEME,
+                    theme: MintTheme
+                });
+            case CoffeeTheme:
+                return dispatch({
+                    type: CHANGE_PAGE_THEME,
+                    theme: CoffeeTheme
+                });
+            case IceTheme:
+                return dispatch({
+                    type: CHANGE_PAGE_THEME,
+                    theme: IceTheme
+                });
+            case DarkBrewTheme:
+                return dispatch({
+                    type: CHANGE_PAGE_THEME,
+                    theme: DarkBrewTheme
+                });
+            default:
+                return dispatch({
                 type: CHANGE_PAGE_THEME,
                 theme: CoffeeTheme
             })
         }
-        if(newTheme === IceTheme){
-            return dispatch({
-                type: CHANGE_PAGE_THEME,
-                theme: IceTheme
-            })
-        }
-        else{
-            return dispatch({
-                type: CHANGE_PAGE_THEME,
-                theme: CoffeeTheme
-            })
-        }
-        //need to add localstorage save to keep persistence
+
     };
 
     return (
@@ -103,6 +108,7 @@ function App() {
                                     <MenuItem value={CoffeeTheme} id="coffee">Creamy Coffee</MenuItem>
                                     <MenuItem value={MintTheme} id="mint">Minty Mocha</MenuItem>
                                     <MenuItem value={IceTheme} id="ice">Icy Coffee</MenuItem>
+                                    <MenuItem value={DarkBrewTheme} id="ice">Dark Brew</MenuItem>
                                 </Select>
                             </FormControl>
                         </Toolbar>
