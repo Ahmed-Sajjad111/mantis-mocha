@@ -44,18 +44,17 @@ function ProductList() {
     }
 
     return (
-        <Box sx={{ mt: 2 }}>
-            <Paper sx={{ boxShadow: 6, bgcolor: "primary.light" }}>
+        <Box sx={{ mt: 2, mb: 15 }}>
+            <Paper sx={{ boxShadow: 6, bgcolor: "primary.light", mb:2 }}>
                 <Typography variant="h4" align="center">
                     Product List
                 </Typography>
             </Paper>
             {state.products.length ? (
-                <Grid container spacing={2} sx={{ mt: 15, ml: 1, mr: 3, mb: 2 }}>
+                <Grid container spacing={2} sx={{ px: 2, justifyContent: "center", }}>
                     {filterProducts().map((product) => (
-                            <Grid item xs={4}>
+                            <Grid item xs={12} sm={4} key={product._id}>
                                 <ProductCard
-                                    key={product._id}
                                     _id={product._id}
                                     image={product.image}
                                     name={product.name}
