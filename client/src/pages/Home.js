@@ -8,6 +8,7 @@ const Home = () => {
     <div className="container">
       <CategorySection />
       <ProductList />
+      <Cart />
     </div>
   );
 };

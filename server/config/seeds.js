@@ -227,10 +227,10 @@ db.once('open', async () => {
             quantity: 15
         },
         {
-            name: "Hot Coffee T-shirt",
+            name: "Mocha Mantis T-shirt",
             category: categories[5]._id,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas fugit quidem quis voluptatem dolore ea doloremque illum ut rem, minus delectus dolorem vel sint inventore saepe facere aut! Ea, modi!',
-            image: '',
+            image: 'MochaTshirt.png',
             price: 24.99,
             quantity: 50
         },
@@ -238,7 +238,7 @@ db.once('open', async () => {
             name: "Mantis Mug",
             category: categories[5]._id,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas fugit quidem quis voluptatem dolore ea doloremque illum ut rem, minus delectus dolorem vel sint inventore saepe facere aut! Ea, modi!',
-            image: '',
+            image: 'MochaTravel.png',
             price: 20.99,
             quantity: 200
         },
@@ -246,7 +246,7 @@ db.once('open', async () => {
             name: "Mantis Mocha Espresso Maker",
             category: categories[5]._id,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas fugit quidem quis voluptatem dolore ea doloremque illum ut rem, minus delectus dolorem vel sint inventore saepe facere aut! Ea, modi!',
-            image: '',
+            image: 'MochaMaker.jpg',
             price: 30.99,
             quantity: 50
         },
@@ -254,7 +254,7 @@ db.once('open', async () => {
             name: "Mocha Mantis Sticker",
             category: categories[5]._id,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas fugit quidem quis voluptatem dolore ea doloremque illum ut rem, minus delectus dolorem vel sint inventore saepe facere aut! Ea, modi!',
-            image: '',
+            image: 'MochaSticker.jpg',
             price: 5.99,
             quantity: 100
         }

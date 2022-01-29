@@ -8,6 +8,10 @@ import CartItem from '../CartItem';
 import Auth from '../../utils/auth';
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 import './style.css';
+import { Box, Button, Typography, Divider } from '@mui/material'
+import CloseIcon from '@mui/icons-material/Close';
+import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
+import mochaMantis from "../../themes/mocha.png";
 
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
@@ -64,45 +68,69 @@ const Cart = () => {
 
     if (!state.cartOpen) {
         return (
-            <div className="cart-closed" onClick={toggleCart}>
-                <span role="img" aria-label="trash">
-                    🛒
-                </span>
-            </div>
+            <Box onClick={toggleCart} sx={{
+                bgcolor: 'background.paper',
+                boxShadow: 1,
+                borderRadius: 2,
+                p: 2,
+                minWidth: 5,
+                zIndex: 'modal',
+                position: "fixed",
+                top: ".5%",
+                right: ".5%"
+            }}>
+                <ShoppingCartCheckoutIcon />
+            </Box>
         );
     }
 
     return (
-        <div className="cart">
-            <div className="close" onClick={toggleCart}>
-                [close]
-            </div>
-            <h2>Shopping Cart</h2>
+        <Box sx={{mt: 18, zIndex: 'modal', position: "fixed", bgcolor: 'background.paper', top: ".5%", right: ".5%", p: 2 }}>
+            <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", my: "auto" }}>
+                <Typography variant="h4">Shopping Cart</Typography>
+                <Button onClick={toggleCart} size="small" variant="outlined" sx={{ color: "warning", height: "50%"}}><CloseIcon/></Button>
+            </Box>
+            <Divider sx={{ mb: 2 }}/>
             {state.cart.length ? (
-                <div>
+                <Box>
                     {state.cart.map((item) => (
                         <CartItem key={item._id} item={item} />
                     ))}
-
-                    <div className="flex-row space-between">
-                        <strong>Total: ${calculateTotal()}</strong>
+                    <Divider sx={{ mb: 2 }}/>
+                    <Box sx={{display: "flex", flexDirection: "row", justifyContent: "space-between"}}> 
+                        <Typography variant="subtitle1" display="block" gutterBottom sx={{ fontWeight: "bold" }}>Total: ${calculateTotal()}</Typography>
 
                         {Auth.loggedIn() ? (
-                            <button onClick={submitCheckout}>Checkout</button>
+                            <Button onClick={submitCheckout} variant="contained" size="small">Checkout</Button>
                         ) : (
                             <span>Log In to Checkout!</span>
                         )}
-                    </div>
-                </div>
+                    </Box>
+                </Box>
             ) : (
-                <h3>
-                    <span role="img" aria-label="shocked">
-                        {/* insert mantis image here */}
-                    </span>
-                    Your Cart Is Empty!
-                </h3>
+                <Box display="flex" justifyContent="center" flexDirection="column">
+                    <Box
+                        component="img"
+                        sx={{
+                            height: 150,
+                            width: 150,
+                            maxHeight: { xs: 75, sm: 150 },
+                            maxWidth: { xs: 75, sm: 150 },
+                            mx: "auto",
+                            mb: 2
+                        }}
+                        alt="mocha helper"
+                        src={mochaMantis}
+                    />
+                    <Typography variant="h4" component="div" align="center" sx={{ color: "warning.dark"}}>
+                        Your Cart is Empty!
+                    </Typography>
+                    <Typography variant="body1" component="div" sx={{ color: "primary.main"}}>
+                        Mocha can't help you buy things unless you add items to your cart.
+                    </Typography>
+                </Box>
             )}
-        </div>
+        </Box>
     );
 };
 

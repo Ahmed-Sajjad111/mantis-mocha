@@ -41,7 +41,7 @@ function CategorySection() {
     };
 
     return (
-        <Grid container spacing={2} justifyContent="space-around" sx={{ mt: 20, bgcolor: "secondary.dark" }}>
+        <Grid container spacing={2} justifyContent="space-between" sx={{ width: "100%", mt: 20, mx: "auto", bgcolor: "secondary.dark" }}>
             {categories.map((categories) => (
                 <Box display="flex" justifyContent="center" alignItems="center" key={categories.name}>
                     <Button

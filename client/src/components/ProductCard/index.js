@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardActions, CardContent, CardMedia, Button, Typography, Grid } from "@mui/material";
+import { Card, CardActions, CardContent, CardMedia, Button, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise, pluralize } from "../../utils/helpers";

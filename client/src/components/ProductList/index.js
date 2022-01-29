@@ -6,7 +6,7 @@ import { useQuery } from "@apollo/client";
 import { GET_PRODUCTS_BY_CATEGORY } from "../../utils/queries";
 import { idbPromise } from "../../utils/helpers";
 
-import { Box, Typography, Paper, Grid } from "@mui/material";
+import { Box, Typography, Grid } from "@mui/material";
 
 function ProductList() {
     const dispatch = useDispatch();
@@ -45,27 +45,31 @@ function ProductList() {
 
     return (
         <Box sx={{ mt: 2, mb: 15 }}>
-            <Paper sx={{ boxShadow: 6, bgcolor: "primary.light", mb:2 }}>
-                <Typography variant="h4" align="center">
-                    Product List
-                </Typography>
-            </Paper>
+            <Typography
+                variant="h4"
+                align="center"
+                sx={{ bgcolor: "primary.main", mb: 3, py: 1, borderRadius: "25px" }}
+            >
+                Product List
+            </Typography>
             {state.products.length ? (
-                <Grid container spacing={2} sx={{ px: 2, justifyContent: "center", }}>
+                <Grid container spacing={2} sx={{ px: 2 }}>
                     {filterProducts().map((product) => (
-                            <Grid item xs={12} sm={4} key={product._id}>
-                                <ProductCard
-                                    _id={product._id}
-                                    image={product.image}
-                                    name={product.name}
-                                    price={product.price}
-                                    quantity={product.quantity}
-                                />
-                            </Grid>
+                        <Grid item xs={12} sm={4} key={product._id} sx={{ mx: "auto" }}>
+                            <ProductCard
+                                _id={product._id}
+                                image={product.image}
+                                name={product.name}
+                                price={product.price}
+                                quantity={product.quantity}
+                            />
+                        </Grid>
                     ))}
                 </Grid>
             ) : (
-                <Typography variant="h3" component="div" align="center">No Products!</Typography>
+                <Typography variant="h3" component="div" align="center">
+                    No Products!
+                </Typography>
             )}
             {/* {loading ? <img src={mantis} alt="mantis loading" /> 
                 : null} */}

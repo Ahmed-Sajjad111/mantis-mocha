@@ -89,11 +89,10 @@ function App() {
                             <Typography variant="h2" component="div" sx={{ flexGrow: 1 }}>
                                 The Coffee Shop
                             </Typography>
-                            <FormControl variant="outlined" sx={{ width: "15%" }}>
+                            <FormControl variant="outlined" sx={{ width: "15%", mr: 6 }}>
                             <InputLabel htmlFor="select-theme" shrink sx={{ color: "success.main" }}>Choose Theme:</InputLabel>
                                 <TextField
                                     id="select-theme"
-                                    labelId="select-theme-label"
                                     value={state.theme}
                                     onChange={handleChange}
                                     select
