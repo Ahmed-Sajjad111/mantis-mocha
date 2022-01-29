@@ -44,6 +44,7 @@ function Signup(props) {
                 display: "flex",
                 flexDirection: "column",
                 px: 4,
+                height: "100%"
             }}
         >
             <Link to="/login" style={{ textDecoration: "none" }}>

@@ -54,19 +54,21 @@ const resolvers = {
       throw new AuthenticationError('Not logged in')
     },
     checkout: async (parent, args, context) => {
-      const url = new URL(context.headers.referer).origin
-      const order = new Order({products: args.products})
+      const url = new URL(context.headers.referer).origin;
+
+
+      const order = new Order ({products: args.products})
+      const { products } = await order.populate('products').execPopulate()
       const line_items = []
 
-      const { products } = await order.populate('products').execPopulate()
-
-      for (let i = 0; i < products.length; i++){
+      for(let i = 0; i < products.length; i++){
+        //generate product id
         const product = await stripe.products.create({
           name: products[i].name,
           description: products[i].description,
-          images: [`${url}/images/${products.image}`]
+          images: [`${url}/images/${products[i].image}`]
         })
-
+        //generate price
         const price = await stripe.prices.create({
           product: product.id,
           unit_amount: products[i].price * 100,
@@ -76,7 +78,7 @@ const resolvers = {
         line_items.push({
           price: price.id,
           quantity: 1
-        });
+        })
       }
 
       const session = await stripe.checkout.sessions.create({
@@ -84,10 +86,10 @@ const resolvers = {
         line_items,
         mode: 'payment',
         success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `${url}/`
-      });
+        cancel_url: `${url}`
+      })
 
-      return { session: session.id };
+      return {session: session.id}
     }
   },
   Mutation: {

@@ -56,7 +56,7 @@ function App() {
                             <Route  excat path="/products/:id" component={SingleProduct} />
                         </Switch>
                     </div>
-                    <Footer />
+                    <Footer/>
                 </Container>
             </ThemeProvider>
         </Router>
