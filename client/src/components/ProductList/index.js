@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import ProductCard from "../ProductCard/index.js";
+import mochaMantis from "../../themes/mocha.png";
 import { useDispatch, useSelector } from "react-redux";
 import { UPDATE_PRODUCTS } from "../../utils/actions";
 import { useQuery } from "@apollo/client";
@@ -71,8 +72,7 @@ function ProductList() {
                     No Products!
                 </Typography>
             )}
-            {/* {loading ? <img src={mantis} alt="mantis loading" /> 
-                : null} */}
+            {loading ? <img src={mochaMantis} alt="mantis loading" /> : null}
         </Box>
     );
 }

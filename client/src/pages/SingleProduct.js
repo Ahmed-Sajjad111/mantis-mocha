@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { Card, CardMedia, CardContent, Typography, CardActions, Button, Box } from "@mui/material";
 import Cart from "../components/Cart";
+import mochaMantis from "../../themes/mocha.png";
 import { useDispatch, useSelector } from "react-redux";
 import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY, ADD_TO_CART, UPDATE_PRODUCTS } from "../utils/actions";
 import { GET_PRODUCTS_BY_CATEGORY } from "../utils/queries";
@@ -118,7 +119,7 @@ function SingleProduct() {
                     </Card>
                 </Box>
             ) : null}
-            {/* {loading ? <img src={mantis-loading} alt="loading" /> : null} */}
+            {loading ? <img src={mochaMantis} alt="loading" /> : null}
         </>
     );
 }
