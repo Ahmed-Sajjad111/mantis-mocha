@@ -1,8 +1,8 @@
 import React from "react";
-
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -19,8 +19,6 @@ import { CHANGE_PAGE_THEME } from "./utils/actions";
 import CoffeeTheme from "./themes/coffee";
 import MintTheme from "./themes/mint";
 import IceTheme from "./themes/ice";
-// import CategorySection from './components/CategorySection';
-// import ProductList from './components/ProductList';
 
 const httpLink = createHttpLink({
     uri: '/graphql',
