@@ -6,6 +6,7 @@ import { useQuery } from '@apollo/client';
 import { GET_PRODUCTS_BY_CATEGORY } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 
+
 import { Box, Typography, Paper, Grid } from "@mui/material";
 
 function ProductList() {
