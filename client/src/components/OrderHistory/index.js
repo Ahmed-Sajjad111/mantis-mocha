@@ -4,7 +4,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 function OrderHistory() {
     return (
-        <Box sx={{ mt: 12, p: 2, bgcolor: "secondary.dark", borderRadius: "25px" }}>
+        <Box sx={{ mt: 26, p: 2, bgcolor: "secondary.dark", borderRadius: "25px" }}>
             <Typography align="center" variant="h2" component="div" sx={{ width: "80%", mx: "auto", mb: 2 }}>
                 Order History
             </Typography>
