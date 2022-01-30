@@ -1,20 +1,20 @@
 import React, { useEffect } from "react";
 import ProductCard from "../ProductCard/index.js";
-import { useDispatch, useSelector } from 'react-redux';
-import { UPDATE_PRODUCTS } from '../../utils/actions';
-import { useQuery } from '@apollo/client';
-import { GET_PRODUCTS_BY_CATEGORY } from '../../utils/queries';
-import { idbPromise } from '../../utils/helpers';
+import mochaMantis from "../../themes/mocha.png";
+import { useDispatch, useSelector } from "react-redux";
+import { UPDATE_PRODUCTS } from "../../utils/actions";
+import { useQuery } from "@apollo/client";
+import { GET_PRODUCTS_BY_CATEGORY } from "../../utils/queries";
+import { idbPromise } from "../../utils/helpers";
 
-
-import { Box, Typography, Paper, Grid } from "@mui/material";
+import { Box, Typography, Grid } from "@mui/material";
 
 function ProductList() {
-    const dispatch = useDispatch()
-    const selectState = state => state
-    const state = useSelector(selectState)
+    const dispatch = useDispatch();
+    const selectState = (state) => state;
+    const state = useSelector(selectState);
 
-    const { currentCategory } = state
+    const { currentCategory } = state;
     const { loading, data } = useQuery(GET_PRODUCTS_BY_CATEGORY);
 
     useEffect(() => {
@@ -41,38 +41,38 @@ function ProductList() {
             return state.products;
         }
 
-        return state.products.filter(
-            (product) => product.category._id === currentCategory
-        );
+        return state.products.filter((product) => product.category._id === currentCategory);
     }
 
     return (
-        <Box sx={{ mt: 2 }}>
-            <Paper sx={{ boxShadow: 6, bgcolor: 'primary.light' }}>
-                <Typography variant="h4" align="center">
-                    Product List
-                </Typography>
-            </Paper>
-            <Grid container spacing={2} sx={{display: "flex", flexDirection: "row"}}>
-                {state.products.length ? (
-                    <Grid item xs={4}>
-                        {filterProducts().map((product) => (
+        <Box sx={{ mt: 2, mb: 15 }}>
+            <Typography
+                variant="h4"
+                align="center"
+                sx={{ bgcolor: "primary.main", mb: 3, py: 1, borderRadius: "25px" }}
+            >
+                Product List
+            </Typography>
+            {state.products.length ? (
+                <Grid container spacing={2} sx={{ px: 2 }}>
+                    {filterProducts().map((product) => (
+                        <Grid item xs={12} sm={4} key={product._id} sx={{ mx: "auto" }}>
                             <ProductCard
-                                key={product._id}
                                 _id={product._id}
                                 image={product.image}
                                 name={product.name}
                                 price={product.price}
                                 quantity={product.quantity}
                             />
-                        ))}
-                    </Grid>
-                ) : (
-                    <h3>No Products!</h3>
-                )}
-                {/* {loading ? <img src={mantis} alt="mantis loading" /> 
-                : null} */}
-            </Grid>
+                        </Grid>
+                    ))}
+                </Grid>
+            ) : (
+                <Typography variant="h3" component="div" align="center">
+                    No Products!
+                </Typography>
+            )}
+            {loading ? <img src={mochaMantis} alt="mantis loading" /> : null}
         </Box>
     );
 }

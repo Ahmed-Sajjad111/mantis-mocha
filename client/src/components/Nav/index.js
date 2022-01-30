@@ -2,6 +2,8 @@ import React from "react";
 import Auth from "../../utils/auth";
 import { AppBar, Toolbar, Avatar, Typography, Button, Grid, Tooltip } from "@mui/material";
 import mochaMantis from "../../themes/mocha.png";
+import { Link } from 'react-router-dom'
+
 
 function Nav() {
     function navHandler() {
@@ -17,12 +19,17 @@ function Nav() {
                     </Grid>
                     <Grid item xs={10}>
                         <Toolbar sx={{ display: "flex", justifyContent: "flex-end" }}>
-                            <Button color="success">
-                                <Typography textAlign="center">Order History</Typography>
-                            </Button>
-                            <Button href="/" onClick={() => Auth.logout()} color="success">
-                                <Typography textAlign="center">Logout</Typography>
-                            </Button>
+                            <Link to='/orderhistory' style={{textDecoration: 'none'}}>
+                                <Button color="success">
+                                    <Typography textAlign="center">Order History</Typography>
+                                </Button>
+                            </Link>
+                                    
+                            <Link to='/' style={{textDecoration: 'none'}}>
+                                <Button onClick={() => Auth.logout()} color="success">
+                                    <Typography textAlign="center">Logout</Typography>
+                                </Button> 
+                            </Link>
                         </Toolbar>
                     </Grid>
                 </Grid>
@@ -39,12 +46,17 @@ function Nav() {
                     </Grid>
                     <Grid item xs={10}>
                         <Toolbar sx={{ display: "flex", justifyContent: "flex-end" }}>
-                            <Button href="/login" color="success">
-                                <Typography textAlign="center">Login</Typography>
-                            </Button>
-                            <Button href="/signup" color="success">
-                                <Typography textAlign="center">Sign-Up</Typography>
-                            </Button>
+                            <Link to='login' style={{textDecoration: 'none'}}>
+                                <Button color="success">
+                                    <Typography textAlign="center">Login</Typography>
+                                </Button>
+                            </Link>
+                           
+                            <Link to='signup' style={{textDecoration: 'none'}}>
+                                <Button color="success">
+                                    <Typography textAlign="center">Sign-Up</Typography>
+                                </Button>
+                            </Link>
                         </Toolbar>
                     </Grid>
                 </Grid>

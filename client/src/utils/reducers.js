@@ -15,7 +15,7 @@ import {
 import CoffeeTheme from '../themes/coffee'
 
 // initial state
-const State = {
+const initialState = {
   products: [],
   cart: [],
   cartOpen: false,
@@ -25,7 +25,7 @@ const State = {
 }
 
 
-export const reducer = ( state = State, action ) => {
+export const reducer = ( state = initialState, action ) => {
   switch (action.type) {
     case ADD_TO_CART:
       return {
@@ -102,7 +102,6 @@ export const reducer = ( state = State, action ) => {
       };
 
     case CHANGE_PAGE_THEME:
-      console.log(action.theme)
       return {
         ...state,
         theme: action.theme
