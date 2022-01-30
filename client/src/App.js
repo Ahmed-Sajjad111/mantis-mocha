@@ -56,6 +56,7 @@ function App() {
                             <Route  excat path="/signup" component={Signup} />
                             <Route  excat path="/products/:id" component={SingleProduct} />
                             <Route  excat path="/orderhistory" component={OrderHistory} />
+                            <Route exact path="/success" component={SuccessPage} />
                         </Switch>
                     </div>
                     <Footer/>
