@@ -9,7 +9,7 @@ db.once('open', async () => {
         { name: 'Robusta Coffee' },
         { name: 'Liberica Coffee' },
         { name: 'Excelsa Coffee' },
-        { name: 'Cold Brew Coffee'},
+        { name: 'Mocha Mantis Specials'},
         { name: 'Merchandise' }
     ]);
   
@@ -30,7 +30,7 @@ db.once('open', async () => {
             name: "Adrian's Arabica Coffee",
             category: categories[0]._id,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas fugit quidem quis voluptatem dolore ea doloremque illum ut rem, minus delectus dolorem vel sint inventore saepe facere aut! Ea, modi!',
-            image: 'CoffeeImage1.jpg',
+            image: 'CoffeeImage3.jpg',
             price: 20.99,
             quantity: 100
         },
@@ -38,7 +38,7 @@ db.once('open', async () => {
             name: "Bruno's Best Coffee",
             category: categories[0]._id,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas fugit quidem quis voluptatem dolore ea doloremque illum ut rem, minus delectus dolorem vel sint inventore saepe facere aut! Ea, modi!',
-            image: 'CoffeeImage1.jpg',
+            image: 'CoffeeImage2.jpg',
             price: 21.99,
             quantity: 100
         },
@@ -46,7 +46,7 @@ db.once('open', async () => {
             name: "Claudia's Curious Coffee",
             category: categories[0]._id,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas fugit quidem quis voluptatem dolore ea doloremque illum ut rem, minus delectus dolorem vel sint inventore saepe facere aut! Ea, modi!',
-            image: 'CoffeeImage1.jpg',
+            image: 'CoffeeImage5.jpg',
             price: 22.99,
             quantity: 100
         },
@@ -54,7 +54,7 @@ db.once('open', async () => {
             name: "Daniel's Deadly Coffee",
             category: categories[0]._id,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas fugit quidem quis voluptatem dolore ea doloremque illum ut rem, minus delectus dolorem vel sint inventore saepe facere aut! Ea, modi!',
-            image: 'CoffeeImage1.jpg',
+            image: 'CoffeeImage4.jpg',
             price: 23.99,
             quantity: 100
         },
@@ -62,7 +62,7 @@ db.once('open', async () => {
             name: "Ezra's Excellent Coffee",
             category: categories[0]._id,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas fugit quidem quis voluptatem dolore ea doloremque illum ut rem, minus delectus dolorem vel sint inventore saepe facere aut! Ea, modi!',
-            image: 'CoffeeImage1.jpg',
+            image: 'CoffeeImage3.jpg',
             price: 24.99,
             quantity: 100
         },
@@ -70,7 +70,7 @@ db.once('open', async () => {
             name: "Greta's Great Coffee",
             category: categories[1]._id,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas fugit quidem quis voluptatem dolore ea doloremque illum ut rem, minus delectus dolorem vel sint inventore saepe facere aut! Ea, modi!',
-            image: 'CoffeeImage2.jpg',
+            image: 'CoffeeImage3.jpg',
             price: 10.99,
             quantity: 100
         },
@@ -78,7 +78,7 @@ db.once('open', async () => {
             name: "Herbert's Handy Coffee",
             category: categories[1]._id,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas fugit quidem quis voluptatem dolore ea doloremque illum ut rem, minus delectus dolorem vel sint inventore saepe facere aut! Ea, modi!',
-            image: 'CoffeeImage2.jpg',
+            image: 'CoffeeImage4.jpg',
             price: 11.99,
             quantity: 100
         },
@@ -86,7 +86,7 @@ db.once('open', async () => {
             name: "Inga's Interesting Coffee",
             category: categories[1]._id,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas fugit quidem quis voluptatem dolore ea doloremque illum ut rem, minus delectus dolorem vel sint inventore saepe facere aut! Ea, modi!',
-            image: 'CoffeeImage2.jpg',
+            image: 'CoffeeImage5.jpg',
             price: 12.99,
             quantity: 100
         },
@@ -94,7 +94,7 @@ db.once('open', async () => {
             name: "Jack's Jumpy Coffee",
             category: categories[1]._id,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas fugit quidem quis voluptatem dolore ea doloremque illum ut rem, minus delectus dolorem vel sint inventore saepe facere aut! Ea, modi!',
-            image: 'CoffeeImage2.jpg',
+            image: 'CoffeeImage3.jpg',
             price: 13.99,
             quantity: 100
         },
@@ -102,7 +102,7 @@ db.once('open', async () => {
             name: "Krusty's Krab Coffee",
             category: categories[1]._id,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas fugit quidem quis voluptatem dolore ea doloremque illum ut rem, minus delectus dolorem vel sint inventore saepe facere aut! Ea, modi!',
-            image: 'CoffeeImage2.jpg',
+            image: 'CoffeeImage5.jpg',
             price: 14.99,
             quantity: 100
         },
@@ -110,7 +110,7 @@ db.once('open', async () => {
             name: "Lisa's Lucious Coffee",
             category: categories[1]._id,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas fugit quidem quis voluptatem dolore ea doloremque illum ut rem, minus delectus dolorem vel sint inventore saepe facere aut! Ea, modi!',
-            image: 'CoffeeImage2.jpg',
+            image: 'CoffeeImage3.jpg',
             price: 15.99,
             quantity: 100
         },
@@ -118,7 +118,7 @@ db.once('open', async () => {
             name: "Margret's Mom Coffee",
             category: categories[2]._id,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas fugit quidem quis voluptatem dolore ea doloremque illum ut rem, minus delectus dolorem vel sint inventore saepe facere aut! Ea, modi!',
-            image: 'CoffeeImage3.jpg',
+            image: 'CoffeeImage2.jpg',
             price: 16.99,
             quantity: 50
         },
@@ -126,7 +126,7 @@ db.once('open', async () => {
             name: "Nancy's Normal Coffee",
             category: categories[2]._id,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas fugit quidem quis voluptatem dolore ea doloremque illum ut rem, minus delectus dolorem vel sint inventore saepe facere aut! Ea, modi!',
-            image: 'CoffeeImage3.jpg',
+            image: 'CoffeeImage1.jpg',
             price: 17.99,
             quantity: 50
         },
@@ -142,7 +142,7 @@ db.once('open', async () => {
             name: "Peter's Piping Coffee",
             category: categories[2]._id,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas fugit quidem quis voluptatem dolore ea doloremque illum ut rem, minus delectus dolorem vel sint inventore saepe facere aut! Ea, modi!',
-            image: 'CoffeeImage3.jpg',
+            image: 'CoffeeImage2.jpg',
             price: 19.99,
             quantity: 50
         },
@@ -150,7 +150,7 @@ db.once('open', async () => {
             name: "Quincy's Questionable Coffee",
             category: categories[2]._id,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas fugit quidem quis voluptatem dolore ea doloremque illum ut rem, minus delectus dolorem vel sint inventore saepe facere aut! Ea, modi!',
-            image: 'CoffeeImage3.jpg',
+            image: 'CoffeeImage4.jpg',
             price: 20.99,
             quantity: 50
         },
@@ -158,7 +158,7 @@ db.once('open', async () => {
             name: "Ramone's Romantic Coffee",
             category: categories[2]._id,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas fugit quidem quis voluptatem dolore ea doloremque illum ut rem, minus delectus dolorem vel sint inventore saepe facere aut! Ea, modi!',
-            image: 'CoffeeImage3.jpg',
+            image: 'CoffeeImage5.jpg',
             price: 21.99,
             quantity: 50
         },
@@ -174,7 +174,7 @@ db.once('open', async () => {
             name: "Teresa's Tasty Coffee",
             category: categories[3]._id,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas fugit quidem quis voluptatem dolore ea doloremque illum ut rem, minus delectus dolorem vel sint inventore saepe facere aut! Ea, modi!',
-            image: 'CoffeeImage4.jpg',
+            image: 'CoffeeImage3.jpg',
             price: 26.99,
             quantity: 25
         },
@@ -182,7 +182,7 @@ db.once('open', async () => {
             name: "Uno's Utopian Coffee",
             category: categories[3]._id,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas fugit quidem quis voluptatem dolore ea doloremque illum ut rem, minus delectus dolorem vel sint inventore saepe facere aut! Ea, modi!',
-            image: 'CoffeeImage4.jpg',
+            image: 'CoffeeImage2.jpg',
             price: 27.99,
             quantity: 25
         },
@@ -190,7 +190,7 @@ db.once('open', async () => {
             name: "Victor's Viscous Coffee",
             category: categories[3]._id,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas fugit quidem quis voluptatem dolore ea doloremque illum ut rem, minus delectus dolorem vel sint inventore saepe facere aut! Ea, modi!',
-            image: 'CoffeeImage4.jpg',
+            image: 'CoffeeImage1.jpg',
             price: 28.99,
             quantity: 25
         },
@@ -198,7 +198,7 @@ db.once('open', async () => {
             name: "Wanda's Witchy Coffee",
             category: categories[3]._id,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas fugit quidem quis voluptatem dolore ea doloremque illum ut rem, minus delectus dolorem vel sint inventore saepe facere aut! Ea, modi!',
-            image: 'CoffeeImage4.jpg',
+            image: 'CoffeeImage3.jpg',
             price: 29.99,
             quantity: 25
         },
@@ -206,24 +206,40 @@ db.once('open', async () => {
             name: "Xavier's XXX Coffee",
             category: categories[3]._id,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas fugit quidem quis voluptatem dolore ea doloremque illum ut rem, minus delectus dolorem vel sint inventore saepe facere aut! Ea, modi!',
-            image: 'CoffeeImage4.jpg',
+            image: 'CoffeeImage5.jpg',
             price: 30.99,
             quantity: 25
         },
         {
-            name: "Yanzee's Yankee Coffee",
+            name: "Mocha The Mantis Special Dark Roast",
             category: categories[4]._id,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas fugit quidem quis voluptatem dolore ea doloremque illum ut rem, minus delectus dolorem vel sint inventore saepe facere aut! Ea, modi!',
-            image: 'CoffeeImage5.jpg',
+            image: 'mocha_the_mantis_dark_roast.jpg',
+            price: 35.99,
+            quantity: 10
+        },
+        {
+            name: "Mocha The Mantis Dark Roast",
+            category: categories[4]._id,
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas fugit quidem quis voluptatem dolore ea doloremque illum ut rem, minus delectus dolorem vel sint inventore saepe facere aut! Ea, modi!',
+            image: 'mocha_the_mantis_dark_roast.jpg',
             price: 40.99,
             quantity: 10
         },
         {
-            name: "Zeus' Zippy Coffee",
+            name: "Mocha The Mantis Special Roast",
             category: categories[4]._id,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas fugit quidem quis voluptatem dolore ea doloremque illum ut rem, minus delectus dolorem vel sint inventore saepe facere aut! Ea, modi!',
-            image: 'CoffeeImage5.jpg',
-            price: 45.99,
+            image: 'mocha_the_mantis_classic_roast.jpg',
+            price: 40.99,
+            quantity: 10
+        },
+        {
+            name: "Mocha The Mantis Classic Roast",
+            category: categories[4]._id,
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas fugit quidem quis voluptatem dolore ea doloremque illum ut rem, minus delectus dolorem vel sint inventore saepe facere aut! Ea, modi!',
+            image: 'mocha_the_mantis_classic_roast.jpg',
+            price: 35.99,
             quantity: 15
         },
         {
@@ -259,16 +275,6 @@ db.once('open', async () => {
             quantity: 100
         }
 
-        /* BEGIN PRODUCT TEMPLATE
-        {
-            name: '',
-            category: categories[]._id,
-            description: '',
-            image: '',
-            price: ,
-            quantity: 
-        },
-        END PRODUCT TEMPLATE */ 
     ]);
 
     console.log('--beep boop-- PRODUCTS SEEDED --beep boop--');
@@ -311,20 +317,6 @@ db.once('open', async () => {
             password:'lookieloo',
         }
     );
-
-    /* BEGIN SHOPPER TEMPLATE
-    {
-        firstName:'',
-        lastName:'',
-        email:'',
-        password:'',
-        orders: [
-            {
-                products:[]
-            }
-        ]
-    } 
-    END SHOPPER TEMPLATE */
 
     console.log('--beep boop-- USERS SEEDED --beep boop--');
 
