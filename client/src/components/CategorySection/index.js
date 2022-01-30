@@ -42,6 +42,12 @@ function CategorySection() {
 
     return (
         <Grid container spacing={2} justifyContent="space-between" sx={{ width: "100%", mt: 20, mx: "auto", bgcolor: "secondary.dark" }}>
+            <Button
+                onClick={() => handleClick("")}
+                color="success"
+            >
+                All Categories
+            </Button>
             {categories.map((categories) => (
                 <Box display="flex" justifyContent="center" alignItems="center" key={categories.name}>
                     <Button
