@@ -10,6 +10,7 @@ import SingleProduct from './pages/SingleProduct';
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 import Header from './components/Header'
+import OrderHistory from "./components/OrderHistory"
 
 import {Container} from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
@@ -54,6 +55,7 @@ function App() {
                             <Route  excat path="/login" component={Login} />
                             <Route  excat path="/signup" component={Signup} />
                             <Route  excat path="/products/:id" component={SingleProduct} />
+                            <Route  excat path="/orderhistory" component={OrderHistory} />
                         </Switch>
                     </div>
                     <Footer/>

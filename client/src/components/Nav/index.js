@@ -19,7 +19,7 @@ function Nav() {
                     </Grid>
                     <Grid item xs={10}>
                         <Toolbar sx={{ display: "flex", justifyContent: "flex-end" }}>
-                            <Link to='login' style={{textDecoration: 'none'}}>
+                            <Link to='/orderhistory' style={{textDecoration: 'none'}}>
                                 <Button color="success">
                                     <Typography textAlign="center">Order History</Typography>
                                 </Button>
