@@ -91,7 +91,6 @@ export const GET_SHOPPER_INFO = gql`
   shopper{
     firstName
     lastName
-
     orders{
       _id
       purchaseDate
