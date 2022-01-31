@@ -14,8 +14,8 @@ import Nav from "./components/Nav";
 import Header from './components/Header'
 
 import {Container} from "@mui/material";
-import { ThemeProvider } from "@mui/material/styles";
-import { CssBaseline } from "@mui/material";
+import {ThemeProvider} from "@mui/material/styles";
+import {CssBaseline } from "@mui/material";
 import {useSelector} from 'react-redux';
 
 

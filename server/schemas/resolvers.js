@@ -31,7 +31,7 @@ const resolvers = {
     },
     shopper: async (parent, args, context) => {
       if(context.shopper) {
-        const shopper = await Shopper.findById(context.shopper._id).populate({
+        const shopper = await Shopper.findById(context.user._id).populate({
           path: 'orders.products',
           populate: 'category'
         })
@@ -43,7 +43,7 @@ const resolvers = {
     },
     order: async (parent, { _id }, context) => {
       if (context.shopper){
-        const shopper = await Shopper.findById(context.shopper._id).populate({
+        const shopper = await Shopper.findById(context.user._id).populate({
           path: 'orders.products',
           populate: 'category'
         })
