@@ -30,20 +30,20 @@ const resolvers = {
       return await Product.find(params).populate('category')
     },
     shopper: async (parent, args, context) => {
-      if(context.user) {
-        const user = await Shopper.findById(context.user._id).populate({
+      if(context.shopper) {
+        const shopper = await Shopper.findById(context.shopper._id).populate({
           path: 'orders.products',
           populate: 'category'
         })
   
-        return user
+        return shopper
       }
       
       throw new AuthenticationError('Not logged in')
     },
     order: async (parent, { _id }, context) => {
-      if (context.user){
-        const shopper = await Shopper.findById(context.user._id).populate({
+      if (context.shopper){
+        const shopper = await Shopper.findById(context.shopper._id).populate({
           path: 'orders.products',
           populate: 'category'
         })
