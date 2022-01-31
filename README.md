@@ -1,7 +1,7 @@
-[![Apache-2.0](https://img.shields.io/badge/Apache-License-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Apache-2.0](https://img.shields.io/badge/Apache-License-blue.svg)](https://opensource.org/licenses/Apache-2.0)  [![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://opensource.org/)[![NPM Version](https://img.shields.io/npm/v/npm.svg?style=flat)]()
 
 # Mantis Mocha
-![image](https://user-images.githubusercontent.com/88279562/151420030-26d8d93a-95c3-45ec-8f1b-ce2583b30f38.jpg)
+![Screenshot (10)](https://user-images.githubusercontent.com/88279562/151873213-49d4f187-12c1-4ff0-90dc-1f6c1563dde0.jpg)
 
 ### *Wake up, and smell the coffee! ☕*
   
@@ -23,7 +23,7 @@
    To run the site locally, clone and run `npm install` followed by `npm run start`
    
   ## Heroku Link: 
-  [Mantis Mocha]()
+  [Mantis Mocha](https://mantismocha.herokuapp.com/)
     
   ## Features:
   - Fast loading
@@ -53,4 +53,6 @@
   Ahmed Sajjad, Mark Carriveau, Benjamin Paulat, Tom Cole, Collin Whalen 
 
   ## Questions? Contact Us!:
-  [Mantis Mocha Contact Us](mailto: Placeholder URl)
+  [Mantis Mocha Contact Us](mailto:mantismocha@gmail.com)
+                                                  
+
