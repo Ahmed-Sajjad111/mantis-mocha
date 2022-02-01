@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Box, Typography, AccordionSummary, AccordionDetails, Accordion, Divider, Grid } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { totalPrices } from "../utils/helpers";
 
 import { useQuery } from '@apollo/client';
 import { GET_SHOPPER_INFO } from '../utils/queries';
@@ -61,17 +62,18 @@ function OrderHistory() {
                                         </Box>
                                         <Grid container alignItems="center" justifyContent="space-between" spacing={2}>
                                             {order.products.map(({ _id, image, name, price, quantity }, index) => (
-                                                <Grid
-                                                    key={index}
-                                                    item xs={4}>
-                                                    <Grid item xs={6}>
-                                                        Item: {name}
+                                                <Grid item xs={4}>
+                                                    <Grid item xs={12}>
+                                                            Item:{" "}
+                                                        <Link to={`/products/${_id}`}>
+                                                            {name}
+                                                        </Link>
                                                     </Grid>
-                                                    <Grid item xs={3}>
-                                                        Item Price: {price}
+                                                    <Grid item xs={12}>
+                                                        Price: {price}
                                                     </Grid>
-                                                    <Grid item xs={3}>
-                                                        Item Quantity: {quantity}
+                                                    <Grid item xs={12}>
+                                                        Quantity: {quantity}
                                                     </Grid>
                                                 </Grid>
                                             ))}
