@@ -41,7 +41,7 @@ const resolvers = {
       //if there is a shopper logged in get the shopper 
       //otherwise return an error
       if(context.shopper) {
-        const shopper = await Shopper.findById(context.user._id).populate({
+        const shopper = await Shopper.findById(context.shopper._id).populate({
           path: 'orders.products',
           populate: 'category'
         })
@@ -56,7 +56,7 @@ const resolvers = {
       //if there is a shopper logged in get the shopper's order by id
       //otherwise return an error
       if (context.shopper){
-        const shopper = await Shopper.findById(context.user._id).populate({
+        const shopper = await Shopper.findById(context.shopper._id).populate({
           path: 'orders.products',
           populate: 'category'
         })
