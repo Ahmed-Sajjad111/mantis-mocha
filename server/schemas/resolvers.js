@@ -22,10 +22,12 @@ const resolvers = {
     products: async (parent, {category, name}) => {
       const params = {}
 
+      //if there is a category return the category of products
       if(category){
         params.category = category
       }
 
+      //if there is a name check if its a string then return the product
       if(name) {
         params.name = {
           $regex: name
@@ -36,6 +38,8 @@ const resolvers = {
     },
     //get a shoppers info
     shopper: async (parent, args, context) => {
+      //if there is a shopper logged in get the shopper 
+      //otherwise return an error
       if(context.shopper) {
         const shopper = await Shopper.findById(context.user._id).populate({
           path: 'orders.products',
@@ -49,6 +53,8 @@ const resolvers = {
     },
     //get an orders info
     order: async (parent, { _id }, context) => {
+      //if there is a shopper logged in get the shopper's order by id
+      //otherwise return an error
       if (context.shopper){
         const shopper = await Shopper.findById(context.user._id).populate({
           path: 'orders.products',
@@ -110,6 +116,7 @@ const resolvers = {
   Mutation: {
     //add shopper
     addShopper: async (parent, args) => {
+      //create a new shopper and sign a token to log them in
       const shopper = await Shopper.create(args);
       const token = signToken(shopper);
 
@@ -117,6 +124,8 @@ const resolvers = {
     },
     //add order
     addOrder: async (parent, { products }, context) => {
+      //if a shopper is logged in then create a new order for that shopper
+      //otherwise return an error
       if (context.shopper) {
         const order = new Order({ products });
 
@@ -129,6 +138,8 @@ const resolvers = {
     },
     //update shoppers info
     updateShopper: async (parent, args, context) => {
+      //if the shopper is logged in change there info 
+      //otherwise return an error
       if (context.shopper) {
         return await Shopper.findByIdAndUpdate(context.shopper._id, args, { new: true });
       }
@@ -141,18 +152,23 @@ const resolvers = {
     },
     //login
     login: async (parent, { email, password }) => {
+      //find a shopper by their email
       const shopper = await Shopper.findOne({ email });
 
+      //if there is no shopper throw an error
       if (!shopper) {
         throw new AuthenticationError('Incorrect credentials');
       }
 
+      //check if the password is correct
       const correctPw = await shopper.isCorrectPassword(password);
 
+      // if the password is incorrect let the shopper know
       if (!correctPw) {
         throw new AuthenticationError('Incorrect Password');
       }
 
+      //if there is a shopper and the password is correct then log the shopper in
       const token = signToken(shopper);
 
       return { token, shopper };
