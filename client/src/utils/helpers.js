@@ -7,7 +7,7 @@ export function pluralize(name, count) {
   
   export function idbPromise(storeName, method, object) {
     return new Promise((resolve, reject) => {
-      const request = window.indexedDB.open('shop-shop', 1);
+      const request = window.indexedDB.open('mantis-mocha', 1);
       let db, tx, store;
       request.onupgradeneeded = function(e) {
         const db = request.result;
@@ -57,6 +57,6 @@ export function pluralize(name, count) {
 
 export function totalPrices(products){
   let priceTotal = 0
-  products.map( product => priceTotal += product.price)
+  products.map( product => priceTotal += (product.price*product.quantity))
   return priceTotal
 }
