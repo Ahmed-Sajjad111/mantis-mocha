@@ -9,7 +9,6 @@ import { GET_SHOPPER_INFO } from '../utils/queries';
 
 function OrderHistory() {
     const { data } = useQuery(GET_SHOPPER_INFO);
-    console.log(data)
     let shopper;
 
     if (data) {
@@ -28,8 +27,8 @@ function OrderHistory() {
                                 Order History for {shopper.firstName} {shopper.lastName}
                             </Typography>
                             <Divider sx={{ mb: 2 }} />
-                            {shopper.orders.map((order) => (
-                                <Accordion defaultExpanded>
+                            {shopper.orders.map(({products, purchaseDate, _id}, index) => (
+                                <Accordion key={index} defaultExpanded>
                                     <AccordionSummary
                                         expandIcon={<ExpandMoreIcon />}
                                         aria-controls="panel1-content"
@@ -39,7 +38,7 @@ function OrderHistory() {
                                             color: "success.primary"
                                         }}
                                     >
-                                        <Typography>Order #{order._id}</Typography>
+                                        <Typography>Order #{_id}</Typography>
                                     </AccordionSummary>
                                     <AccordionDetails
                                         sx={{
@@ -48,7 +47,7 @@ function OrderHistory() {
                                         }}
                                     >
                                         <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "left", width: "80%" }}>
-                                            <Typography>Date: {new Date(parseInt(order.purchaseDate)).toLocaleDateString()}</Typography>
+                                            <Typography>Date: {new Date(parseInt(purchaseDate)).toLocaleDateString()}</Typography>
                                         </Box>
                                         <Box
                                             sx={{
@@ -59,11 +58,11 @@ function OrderHistory() {
                                                 mb: 2,
                                             }}
                                         >
-                                            <Typography>Total Price: {totalPrices(order.products)}</Typography>
+                                            <Typography>Total Price: {totalPrices(products)}</Typography>
                                         </Box>
                                         <Grid container alignItems="center" justifyContent="space-between" spacing={2}>
-                                            {order.products.map(({ _id, image, name, price, quantity }, index) => (
-                                                <Grid item xs={4}>
+                                            {products.map(({ _id, image, name, price, quantity }, index) => (
+                                                <Grid key={index} item xs={4}>
                                                     <Grid item xs={12}>
                                                             Item:{" "}
                                                         <Link to={`/products/${_id}`}>
