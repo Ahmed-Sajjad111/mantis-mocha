@@ -9,6 +9,7 @@ import { GET_SHOPPER_INFO } from '../utils/queries';
 
 function OrderHistory() {
     const { data } = useQuery(GET_SHOPPER_INFO);
+    console.log(data)
     let shopper;
 
     if (data) {
