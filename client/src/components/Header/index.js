@@ -8,6 +8,7 @@ import CoffeeTheme from "../../themes/coffee";
 import MintTheme from "../../themes/mint";
 import IceTheme from "../../themes/ice";
 import DarkBrewTheme from "../../themes/dark";
+import MantisTheme from "../../themes/mantis";
 
 
 
@@ -18,7 +19,7 @@ function Header() {
   const handleChange = (event) => {
     const newTheme = event.target.value
 
-    switch(newTheme){
+    switch (newTheme) {
       case MintTheme:
         return dispatch({
           type: CHANGE_PAGE_THEME,
@@ -39,45 +40,51 @@ function Header() {
           type: CHANGE_PAGE_THEME,
           theme: DarkBrewTheme
         });
+      case MantisTheme:
+        return dispatch({
+          type: CHANGE_PAGE_THEME,
+          theme: MantisTheme
+        });
       default:
         return dispatch({
           type: CHANGE_PAGE_THEME,
           theme: CoffeeTheme
-      })
+        })
     }
   };
 
   return (
-    <Grid container spacing={2} sx={{ mb:2 }}>
+    <Grid container spacing={2} sx={{ mb: 2 }}>
       <AppBar>
         <Toolbar>
-        <Typography component="div" sx={{ flexGrow: 1 }}>
-          <Link to='/' style={{ textDecoration: "none"}}>
-            <Button color="success">
-              <Typography variant="h2">
-                Mantis Mocha
-              </Typography> 
-            </Button>
+          <Typography component="div" sx={{ flexGrow: 1 }}>
+            <Link to='/' style={{ textDecoration: "none" }}>
+              <Button color="success">
+                <Typography variant="h2">
+                  Mantis Mocha
+                </Typography>
+              </Button>
             </Link>
           </Typography>
-        <FormControl variant="outlined" sx={{ width: "15%", mr: 6 }}>
-        <InputLabel htmlFor="select-theme" shrink sx={{ color: "success.main" }}>Choose Theme:</InputLabel>
+          <FormControl variant="outlined" sx={{ width: "15%", mr: 6 }}>
+            <InputLabel htmlFor="select-theme" shrink sx={{ color: "success.main" }}>Choose Theme:</InputLabel>
             <TextField
-                id="select-theme"
-                value={state.theme}
-                onChange={handleChange}
-                select
-                variant="filled"
-                margin="none"
-                size="small"
-                SelectProps={{ sx: { color: "success.main"} }}
+              id="select-theme"
+              value={state.theme}
+              onChange={handleChange}
+              select
+              variant="filled"
+              margin="none"
+              size="small"
+              SelectProps={{ sx: { color: "success.main" } }}
             >
-                <MenuItem value={CoffeeTheme} id="coffee">Creamy Coffee</MenuItem>
-                <MenuItem value={MintTheme} id="mint">Minty Mocha</MenuItem>
-                <MenuItem value={IceTheme} id="ice">Icy Coffee</MenuItem>
-                <MenuItem value={DarkBrewTheme} id="ice">Dark Brew</MenuItem>
+              <MenuItem value={CoffeeTheme} id="coffee">Creamy Coffee</MenuItem>
+              <MenuItem value={MintTheme} id="mint">Minty Mocha</MenuItem>
+              <MenuItem value={IceTheme} id="ice">Icy Coffee</MenuItem>
+              <MenuItem value={DarkBrewTheme} id="dark">Dark Brew</MenuItem>
+              <MenuItem value={MantisTheme} id="melon">Mantis Melon</MenuItem>
             </TextField>
-        </FormControl>
+          </FormControl>
         </Toolbar>
       </AppBar>
     </Grid>
