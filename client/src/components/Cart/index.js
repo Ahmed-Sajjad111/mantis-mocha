@@ -74,14 +74,13 @@ const Cart = () => {
                     boxShadow: 1,
                     borderRadius: 2,
                     p: '.5%',
-                    minWidth: 10,
                     zIndex: "modal",
                     position: "fixed",
                     top: {xs:'.5%', xl:'.05%'},
                     right: {xs:'.5%', xl:'.05%'},
                 }}
             >
-                <ShoppingCartCheckoutIcon sx={{color: "success.main"}}/>
+                <ShoppingCartCheckoutIcon sx={{color: "success.main", mr: 1, pl: 1, fontSize: {xs: 35, xl:40} }}/>
             </Box>
         );
     }
