@@ -12,6 +12,7 @@ import OrderHistory from "./pages/OrderHistory"
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 import Header from './components/Header'
+import NoMatch from './pages/NoMatch';
 
 import {Container} from "@mui/material";
 import {ThemeProvider} from "@mui/material/styles";
@@ -57,6 +58,7 @@ function App() {
                             <Route  exact path="/products/:id" component={SingleProduct} />
                             <Route  exact path="/orderhistory" component={OrderHistory} />
                             <Route  exact path="/success" component={SuccessPage} />
+                            <Route component={NoMatch}/>
                         </Switch>
                     </div>
                     <Footer/>
