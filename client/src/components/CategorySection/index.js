@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Grid, Button, Box } from "@mui/material";
+import { Grid, Button, Box, TextField, MenuItem } from "@mui/material";
 import { useQuery } from "@apollo/client";
 import { UPDATE_CATEGORIES, UPDATE_CURRENT_CATEGORY } from "../../utils/actions";
 import { GET_ALL_CATEGORIES } from "../../utils/queries";
@@ -48,6 +48,7 @@ function CategorySection() {
             >
                 All Categories
             </Button>
+            <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             {categories.map((categories) => (
                 <Box display="flex" justifyContent="center" alignItems="center" key={categories.name}>
                     <Button
@@ -60,6 +61,24 @@ function CategorySection() {
                     </Button>
                 </Box>
             ))}
+            </Box>
+            <Box sx={{ display: { xs: 'block', md: 'none' } }}>
+                <Box display="flex" justifyContent="center" alignItems="center">
+                    <TextField
+                        value={state._id}
+                        onChange={() => {handleClick(categories._id)}}
+                        select
+                        variant='filled'
+                        margin='none'
+                        size='small'
+                        SelectProps={{ sx: { color: 'success.main' }}}
+                    >
+                        {categories.map((categories) => (
+                            <MenuItem key={categories.name} value={categories._id}>{categories.name}</MenuItem>
+                        ))}
+                    </TextField>
+                </Box>
+            </Box>
         </Grid>
     );
 }
