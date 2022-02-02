@@ -55,12 +55,8 @@ export function pluralize(name, count) {
     });
   }
 
-// function to get total of prices on the order page.
-// pass in all the products in the order and it will return the total
 export function totalPrices(products){
   let priceTotal = 0
-
-  products.map(({product}) => priceTotal += product.price)
-  
+  products.map( product => priceTotal += product.price)
   return priceTotal
 }

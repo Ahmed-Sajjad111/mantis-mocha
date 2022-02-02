@@ -58,7 +58,7 @@ function OrderHistory() {
                                                 mb: 2,
                                             }}
                                         >
-                                            <Typography>Total Price:</Typography>
+                                            <Typography>Total Price: {totalPrices(order.products)}</Typography>
                                         </Box>
                                         <Grid container alignItems="center" justifyContent="space-between" spacing={2}>
                                             {order.products.map(({ _id, image, name, price, quantity }, index) => (
@@ -82,26 +82,6 @@ function OrderHistory() {
                                 </Accordion>
                             ))}
                         </Box>
-                        {/* {shopper.orders.map((order) => (
-                            <div key={order._id} className="my-2">
-                                <h3>
-                                    {new Date(parseInt(order.purchaseDate)).toLocaleDateString()}
-                                </h3>
-                                <div className="flex-row">
-                                    {order.products.map(({ _id, image, name, price }, index) => (
-                                        <div key={index} className="card px-1 py-1">
-                                            <Link to={`/products/${_id}`}>
-                                                <img alt={name} src={`/images/${image}`} />
-                                                <p>{name}</p>
-                                            </Link>
-                                            <div>
-                                                <span>${price}</span>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        ))} */}
                     </>
                 ) : null}
             </div>
