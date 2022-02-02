@@ -43,6 +43,7 @@ const Cart = () => {
         dispatch({ type: TOGGLE_CART });
     }
 
+    
     function calculateTotal() {
         let sum = 0;
         state.cart.forEach((item) => {
