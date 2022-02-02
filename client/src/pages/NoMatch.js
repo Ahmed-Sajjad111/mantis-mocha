@@ -4,7 +4,6 @@ import logo from "../themes/mocha.png";
 import { Link } from "react-router-dom";
 
 function NoMatch() {
-
   return (
     <Box
       sx={{
@@ -42,21 +41,13 @@ function NoMatch() {
         The page you have requested has failed to load.
       </Typography>
 
-      <Link
-        style={{ textDecoration: 'none' }}
-        to="/"
-      >
-        <Button
-          variant="contained"
-          sx={{ my: 2, width: "30%", mx: "auto" }}
-        >
+      <Link style={{ textDecoration: "none" }} to="/">
+        <Button variant="contained" sx={{ my: 2, width: "30%", mx: "auto" }}>
           Return Home.
         </Button>
       </Link>
     </Box>
   );
 }
-/* //center logo */
-//import logo
 
 export default NoMatch;
