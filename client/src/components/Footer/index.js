@@ -6,7 +6,7 @@ function Footer() {
         <Paper sx={{ bottom: 0, position: "fixed", width: "100%", right: 0, bgcolor: 'primary.main', }}>
             <Grid container spacing={2}>
                 <Grid item xs={12} sm={7}>
-                    <Typography variant="h4" mt={1} ml={1}>
+                    <Typography sx={{ fontSize: { xs:'caption.fontSize', sm:'h4.fontSize' }}} mt={1} ml={.5} pr={-2}>
                         2022 The Coffee Shop <span role="img" aria-label="coffee emoji">☕</span> , Inc.
                     </Typography>
                 </Grid>
