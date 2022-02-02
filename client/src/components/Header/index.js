@@ -54,13 +54,13 @@ function Header() {
         <Typography component="div" sx={{ flexGrow: 1 }}>
           <Link to='/' style={{ textDecoration: "none"}}>
             <Button color="success">
-              <Typography variant="h2">
+              <Typography sx={{ fontSize: {xs:'h6.fontSize', lg:'h2.fontSize'} }}>
                 Mantis Mocha
               </Typography> 
             </Button>
             </Link>
           </Typography>
-        <FormControl variant="outlined" sx={{ width: "15%", mr: 6 }}>
+        <FormControl variant="outlined" sx={{ width: {xs:'35%', sm:'20%'}, mr: 6 }}>
         <InputLabel htmlFor="select-theme" shrink sx={{ color: "success.main" }}>Choose Theme:</InputLabel>
             <TextField
                 id="select-theme"
