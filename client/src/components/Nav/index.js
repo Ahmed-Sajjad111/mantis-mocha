@@ -12,16 +12,16 @@ function Nav() {
                 <Grid container>
                     <Grid item xs={12}>
                         <Toolbar sx={{ display: "flex", justifyContent: "flex-end" }}>
-                            <Link to='/orderhistory' style={{textDecoration: 'none'}}>
+                            <Link to='/orderhistory' style={{ textDecoration: 'none' }}>
                                 <Button color="success">
                                     <Typography textAlign="center">Order History</Typography>
                                 </Button>
                             </Link>
-                                    
-                            <Link to='/' style={{textDecoration: 'none'}}>
+
+                            <Link to='/' style={{ textDecoration: 'none' }}>
                                 <Button onClick={() => Auth.logout()} color="success">
                                     <Typography textAlign="center">Logout</Typography>
-                                </Button> 
+                                </Button>
                             </Link>
                             <Tooltip title="Mocha the Mantis has curated a premium selection of coffees you're sure to enjoy!">
                                 <Avatar sx={{ border: 1, borderColor: "primary" }} variant="square" src={mochaMantis} />
@@ -35,13 +35,13 @@ function Nav() {
                 <Grid container>
                     <Grid item xs={12}>
                         <Toolbar sx={{ display: "flex", justifyContent: "flex-end" }}>
-                            <Link to='login' style={{textDecoration: 'none'}}>
+                            <Link to='login' style={{ textDecoration: 'none' }}>
                                 <Button color="success">
                                     <Typography textAlign="center">Login</Typography>
                                 </Button>
                             </Link>
-                           
-                            <Link to='signup' style={{textDecoration: 'none'}}>
+
+                            <Link to='signup' style={{ textDecoration: 'none' }}>
                                 <Button color="success">
                                     <Typography textAlign="center">Sign-Up</Typography>
                                 </Button>
