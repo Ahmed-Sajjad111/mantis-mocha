@@ -10,14 +10,7 @@ function Nav() {
         if (Auth.loggedIn()) {
             return (
                 <Grid container>
-                    <Grid item xs={2}>
-                        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-                            <Tooltip title="Mocha the Mantis has curated a premium selection of coffees you're sure to enjoy!">
-                                <Avatar sx={{ border: 1, borderColor: "primary" }} variant="square" src={mochaMantis} />
-                            </Tooltip>
-                        </Toolbar>
-                    </Grid>
-                    <Grid item xs={10}>
+                    <Grid item xs={12}>
                         <Toolbar sx={{ display: "flex", justifyContent: "flex-end" }}>
                             <Link to='/orderhistory' style={{ textDecoration: 'none' }}>
                                 <Button color="success">
@@ -30,6 +23,9 @@ function Nav() {
                                     <Typography textAlign="center">Logout</Typography>
                                 </Button>
                             </Link>
+                            <Tooltip title="Mocha the Mantis has curated a premium selection of coffees you're sure to enjoy!">
+                                <Avatar sx={{ border: 1, borderColor: "primary" }} variant="square" src={mochaMantis} />
+                            </Tooltip>
                         </Toolbar>
                     </Grid>
                 </Grid>
@@ -37,14 +33,7 @@ function Nav() {
         } else {
             return (
                 <Grid container>
-                    <Grid item xs={2}>
-                        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-                            <Tooltip title="Mocha the Mantis is excited for you to see what he has to offer!">
-                                <Avatar sx={{ border: 1, borderColor: "primary" }} variant="square" src={mochaMantis} />
-                            </Tooltip>
-                        </Toolbar>
-                    </Grid>
-                    <Grid item xs={10}>
+                    <Grid item xs={12}>
                         <Toolbar sx={{ display: "flex", justifyContent: "flex-end" }}>
                             <Link to='login' style={{ textDecoration: 'none' }}>
                                 <Button color="success">
@@ -57,6 +46,9 @@ function Nav() {
                                     <Typography textAlign="center">Sign-Up</Typography>
                                 </Button>
                             </Link>
+                            <Tooltip title="Mocha the Mantis is excited for you to see what he has to offer!">
+                                <Avatar sx={{ border: 1, borderColor: "primary" }} variant="square" src={mochaMantis} />
+                            </Tooltip>
                         </Toolbar>
                     </Grid>
                 </Grid>

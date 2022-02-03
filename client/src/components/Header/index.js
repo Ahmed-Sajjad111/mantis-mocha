@@ -57,17 +57,17 @@ function Header() {
     <Grid container spacing={2} sx={{ mb: 2 }}>
       <AppBar>
         <Toolbar>
-          <Typography component="div" sx={{ flexGrow: 1 }}>
-            <Link to='/' style={{ textDecoration: "none" }}>
-              <Button color="success">
-                <Typography variant="h2">
-                  Mantis Mocha
-                </Typography>
-              </Button>
+        <Typography component="div" sx={{ flexGrow: 1 }}>
+          <Link to='/' style={{ textDecoration: "none"}}>
+            <Button color="success">
+              <Typography sx={{ fontSize: {xs:'h6.fontSize', lg:'h2.fontSize'} }}>
+                Mantis Mocha
+              </Typography> 
+            </Button>
             </Link>
           </Typography>
-          <FormControl variant="outlined" sx={{ width: "15%", mr: 6 }}>
-            <InputLabel htmlFor="select-theme" shrink sx={{ color: "success.main" }}>Choose Theme:</InputLabel>
+        <FormControl variant="outlined" sx={{ width: {xs:'35%', sm:'20%'}, mr: 6 }}>
+        <InputLabel htmlFor="select-theme" shrink sx={{ color: "success.main" }}>Choose Theme:</InputLabel>
             <TextField
               id="select-theme"
               value={state.theme}
