@@ -123,11 +123,11 @@ const resolvers = {
       return { token, shopper };
     },
     //add order
-    addOrder: async (parent, { products }, context) => {
+    addOrder: async (parent, { products, purchaseQuantity}, context) => {
       //if a shopper is logged in then create a new order for that shopper
       //otherwise return an error
       if (context.shopper) {
-        const order = new Order({ products });
+        const order = new Order({ products, purchaseQuantity });
 
         await Shopper.findByIdAndUpdate(context.shopper._id, { $push: { orders: order } });
 

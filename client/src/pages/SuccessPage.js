@@ -11,9 +11,12 @@ function SuccessPage() {
     async function saveOrder() {
       const cart = await idbPromise("cart", "get");
       const products = cart.map((item) => item._id);
+      const purchaseQuantity = cart.map((item) => item.purchaseQuantity)
+      // console.log(products, purchaseQuantity)
 
       if (products.length) {
-        const { data } = await addOrder({ variables: { products } });
+        const { data } = await addOrder({ variables: { products, purchaseQuantity} });
+        console.log(data)
         const productData = data.addOrder.products;
 
         productData.forEach((item) => {
@@ -21,12 +24,12 @@ function SuccessPage() {
         });
       }
 
-      setTimeout(() => {
-        window.location.assign("/");
-      }, 3000);
+      // setTimeout(() => {
+      //   window.location.assign("/");
+      // }, 3000);
     }
 
-    saveOrder();
+    saveOrder()
   }, [addOrder]);
 
   return (
