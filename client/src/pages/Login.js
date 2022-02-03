@@ -3,12 +3,15 @@ import { useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
 import { LOGIN } from "../utils/mutations";
 import Auth from "../utils/auth";
-import { Box, TextField, Button, FormControl, Typography, Slide } from "@mui/material";
+import { Box, TextField, Button, FormControl, Typography, Collapse, Alert, IconButton } from "@mui/material";
 import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
+import CloseIcon from "@mui/icons-material/Close";
 
 function Login(props) {
     const [formState, setFormState] = useState({ email: "", password: "" });
+    const [loginAlert, setLoginAlert] = useState(false);
     const [login, { error }] = useMutation(LOGIN);
+
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
@@ -20,6 +23,7 @@ function Login(props) {
             Auth.login(token);
         } catch (e) {
             console.log(e);
+            setLoginAlert(true);
         }
     };
 
@@ -28,6 +32,7 @@ function Login(props) {
         setFormState({
             ...formState,
             [name]: value,
+            loginAlert: false
         });
     };
 
@@ -79,18 +84,29 @@ function Login(props) {
                 />
             </FormControl>
             {error ? (
-                <Slide direction="up" in={error}>
-                    <Typography
-                        align="center"
-                        variant="h6"
-                        component="div"
-                        className="error-text"
-                        sx={{ my: 2, color: "red" }}
+                <Collapse in={loginAlert}>
+                    <Alert
+                        variant="filled"
+                        severity="error"
+                        action={
+                            <IconButton
+                                aria-label="close"
+                                color="inherit"
+
+                                size="small"
+                                onClick={() => {
+                                    setLoginAlert(false);
+                                }}
+                            >
+                                <CloseIcon fontSize="inherit" />
+                            </IconButton>
+                        }
                     >
-                        The provided credentials are incorrect
-                    </Typography>
-                </Slide>
+                        Something went wrong with your login!
+                    </Alert>
+                </Collapse>
             ) : null}
+
             <Button
                 variant="contained"
                 onClick={handleFormSubmit}
