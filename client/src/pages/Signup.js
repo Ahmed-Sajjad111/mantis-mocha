@@ -3,25 +3,48 @@ import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
 import { ADDSHOPPER } from "../utils/mutations";
-import { Box, TextField, Button, FormControl, Typography } from "@mui/material";
+import { Alert, Box, TextField, Button, FormControl, Typography } from "@mui/material";
 import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 
 function Signup(props) {
     const [formState, setFormState] = useState({ email: "", password: "" });
-    const [addShopper] = useMutation(ADDSHOPPER);
+    // set state for alert
+    const [showAlert, setShowAlert] = useState(false);
+
+    const [addShopper, { error }] = useMutation(ADDSHOPPER);
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-        const mutationResponse = await addShopper({
-            variables: {
-                email: formState.email,
-                password: formState.password,
-                firstName: formState.firstName,
-                lastName: formState.lastName,
-            },
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        try {
+            const mutationResponse = await addShopper({
+                variables: {
+                    email: formState.email,
+                    password: formState.password,
+                    firstName: formState.firstName,
+                    lastName: formState.lastName,
+                },
+            });
+
+            if (error) {
+                throw new Error('something went wrong!')
+            }
+            const token = mutationResponse.data.addShopper.token;
+            Auth.login(token);
+        } catch (e) {
+            console.error(e)
+            setShowAlert(true)
+        }
+        setFormState({
+            email: '',
+            password: '',
+            firstName: '',
+            lastName: ''
         });
-        const token = mutationResponse.data.addShopper.token;
-        Auth.login(token);
     };
 
     const handleChange = (event) => {
@@ -107,6 +130,7 @@ function Signup(props) {
                     sx={{ width: "90%", mx: "auto" }}
                 />
             </FormControl>
+            <Alert onClose={() => setShowAlert(false) }>Something went wrong if your signup!</Alert>
             <Button
                 variant="contained"
                 onClick={handleFormSubmit}
