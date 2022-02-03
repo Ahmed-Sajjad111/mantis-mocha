@@ -29,7 +29,6 @@ function OrderHistory() {
                             <Divider sx={{ mb: 2 }} />
                             {shopper.orders.map(({products, purchaseDate, _id, purchaseQuantity}, index) => (
                                 <Accordion key={index} defaultExpanded>
-                                    {console.log(purchaseQuantity)}
                                     <AccordionSummary
                                         expandIcon={<ExpandMoreIcon />}
                                         aria-controls="panel1-content"
@@ -59,7 +58,7 @@ function OrderHistory() {
                                                 mb: 2,
                                             }}
                                         >
-                                            <Typography>Total Price: {totalPrices(products)}</Typography>
+                                            <Typography>Total Price: {totalPrices(products, purchaseQuantity)}</Typography>
                                         </Box>
                                         <Grid container alignItems="center" justifyContent="space-between" spacing={2}>
                                             {products.map(({ _id, image, name, price, quantity}, index) => (

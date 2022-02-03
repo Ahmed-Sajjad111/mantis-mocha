@@ -55,8 +55,10 @@ export function pluralize(name, count) {
     });
   }
 
-export function totalPrices(products){
+export function totalPrices(products, purchaseQuantity){
   let priceTotal = 0
-  products.map( product => priceTotal += (product.price*product.quantity))
+  for(let i = 0; i < products.length; i++){
+    priceTotal += products[i].price*purchaseQuantity[i]
+  }
   return priceTotal
 }
