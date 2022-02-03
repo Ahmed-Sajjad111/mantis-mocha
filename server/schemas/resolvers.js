@@ -147,7 +147,9 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
     //update the products quantity
-    updateProductQuantity: async (parent, { _id, quantity }) => {
+    updateProductQuantity: async (parent, { _id, quantity, removeQuantity }) => {
+      quantity = quantity - removeQuantity
+
       return await Product.findByIdAndUpdate(_id, {quantity: quantity}, { new: true });
     },
     //login

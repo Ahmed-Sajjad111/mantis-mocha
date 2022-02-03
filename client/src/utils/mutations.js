@@ -52,8 +52,8 @@ export const ADDORDER = gql`
 `
 
 export const UPDATEQUANTITY = gql`
-  mutation updateQuantity($id: ID!, $quantity: Int!){
-  updateProductQuantity(_id: $id, quantity: $quantity){
+  mutation updateQuantity($id: ID!, $quantity: Int!, $removeQuantity: Int!){
+  updateProductQuantity(_id: $id, quantity: $quantity, removeQuantity: $removeQuantity){
     quantity
     }
   }
