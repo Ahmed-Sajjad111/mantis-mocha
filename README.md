@@ -50,7 +50,7 @@
     - apollo-server-express
        
   ## Contributors, Dec 2022:
-  Ahmed Sajjad, Mark Carriveau, Benjamin Paulat, Tom Cole, Collin Whalen 
+  [Ahmed Sajjad](https://github.com/Ahmed-Sajjad111), [Mark Carriveau](https://github.com/mjbc53), [Benjamin Paulat](https://github.com/BenPaulat), [Tom Cole](https://github.com/Caeldeth), [Collin Whalen](https://github.com/Collin-W)
 
   ## Questions? Contact Us!:
   [Mantis Mocha Contact Us](mailto:mantismocha@gmail.com)
