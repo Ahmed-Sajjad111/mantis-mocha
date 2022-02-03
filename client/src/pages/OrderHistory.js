@@ -27,8 +27,9 @@ function OrderHistory() {
                                 Order History for {shopper.firstName} {shopper.lastName}
                             </Typography>
                             <Divider sx={{ mb: 2 }} />
-                            {shopper.orders.map(({products, purchaseDate, _id}, index) => (
+                            {shopper.orders.map(({products, purchaseDate, _id, purchaseQuantity}, index) => (
                                 <Accordion key={index} defaultExpanded>
+                                    {console.log(purchaseQuantity)}
                                     <AccordionSummary
                                         expandIcon={<ExpandMoreIcon />}
                                         aria-controls="panel1-content"
@@ -61,7 +62,7 @@ function OrderHistory() {
                                             <Typography>Total Price: {totalPrices(products)}</Typography>
                                         </Box>
                                         <Grid container alignItems="center" justifyContent="space-between" spacing={2}>
-                                            {products.map(({ _id, image, name, price, quantity }, index) => (
+                                            {products.map(({ _id, image, name, price, quantity}, index) => (
                                                 <Grid key={index} item xs={4}>
                                                     <Grid item xs={12}>
                                                             Item:{" "}
@@ -73,7 +74,7 @@ function OrderHistory() {
                                                         Price: {price}
                                                     </Grid>
                                                     <Grid item xs={12}>
-                                                        Quantity: {quantity}
+                                                        Quantity: {purchaseQuantity[index]}
                                                     </Grid>
                                                 </Grid>
                                             ))}
