@@ -10,10 +10,12 @@ function ProductCard(item) {
     const selectState = (state) => state;
     const state = useSelector(selectState);
 
+    // this will break down the item object for the JSX
     const { image, name, _id, price, quantity, description } = item;
 
     const { cart } = state;
 
+    // adds item to cart when a products button is clicked
     const addToCart = () => {
         const itemInCart = cart.find((cartItem) => cartItem._id === _id);
         if (itemInCart) {
@@ -35,6 +37,7 @@ function ProductCard(item) {
         }
     };
 
+    // this allows all item objects in the global store to have a card that renders to the page
     return (
         <Card sx={{ maxWidth: 400, boxShadow: 4, bgcolor: "secondary.main" }}>
             <CardMedia component="img" height="300" image={`/images/${image}`} alt={name} sx={{ borderBottom: 2 }} />

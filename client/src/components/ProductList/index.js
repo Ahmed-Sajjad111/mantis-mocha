@@ -17,6 +17,7 @@ function ProductList() {
     const { currentCategory } = state;
     const { loading, data } = useQuery(GET_PRODUCTS_BY_CATEGORY);
 
+    // update product list
     useEffect(() => {
         if (data) {
             dispatch({
@@ -26,6 +27,7 @@ function ProductList() {
             data.products.forEach((product) => {
                 idbPromise("products", "put", product);
             });
+    // uses indexDB if not online to get products
         } else if (!loading) {
             idbPromise("products", "get").then((products) => {
                 dispatch({
@@ -36,6 +38,7 @@ function ProductList() {
         }
     }, [data, loading, dispatch]);
 
+    // returns a specific category or the entire category object from the store
     function filterProducts() {
         if (!currentCategory) {
             return state.products;

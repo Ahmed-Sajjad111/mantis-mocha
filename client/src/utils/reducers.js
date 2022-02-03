@@ -97,7 +97,6 @@ export const reducer = ( state = initialState, action ) => {
     case RESET_ALL_CATEGORY :
       return {
         ...state,
-        // might need to change this
         currentCategory: action.currentCategory,
       };
 
@@ -106,9 +105,7 @@ export const reducer = ( state = initialState, action ) => {
         ...state,
         theme: action.theme
       };
-
-    
-
+      
     default:
       return state;
   }

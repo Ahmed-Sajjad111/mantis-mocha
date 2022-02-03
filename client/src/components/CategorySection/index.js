@@ -15,7 +15,9 @@ function CategorySection() {
     const { loading, data: categoryData } = useQuery(GET_ALL_CATEGORIES);
 
     useEffect(() => {
+         // run dispatch function if categoryData is returned from query
         if (categoryData) {
+            // the dispatch function will update category data
             dispatch({
                 type: UPDATE_CATEGORIES,
                 categories: categoryData.categories,
@@ -23,6 +25,7 @@ function CategorySection() {
             categoryData.categories.forEach((category) => {
                 idbPromise("categories", "put", category);
             });
+            // if connection is lost, get categories from indexDB
         } else if (!loading) {
             idbPromise("categories", "get").then((categories) => {
                 dispatch({

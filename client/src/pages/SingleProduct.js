@@ -49,6 +49,7 @@ function SingleProduct() {
         }
     }, [products, data, loading, dispatch, id]);
 
+    // adds item to cart
     const addToCart = () => {
         const itemInCart = cart.find((cartItem) => cartItem._id === id);
         if (itemInCart) {

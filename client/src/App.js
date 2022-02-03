@@ -8,14 +8,15 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import SingleProduct from './pages/SingleProduct';
 import SuccessPage from './pages/SuccessPage';
+import OrderHistory from "./pages/OrderHistory"
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 import Header from './components/Header'
-import OrderHistory from "./components/OrderHistory"
+import NoMatch from './pages/NoMatch';
 
 import {Container} from "@mui/material";
-import { ThemeProvider } from "@mui/material/styles";
-import { CssBaseline } from "@mui/material";
+import {ThemeProvider} from "@mui/material/styles";
+import {CssBaseline } from "@mui/material";
 import {useSelector} from 'react-redux';
 
 
@@ -52,11 +53,12 @@ function App() {
                         <Nav />
                         <Switch>
                             <Route  exact path="/" component={Home} />
-                            <Route  excat path="/login" component={Login} />
-                            <Route  excat path="/signup" component={Signup} />
-                            <Route  excat path="/products/:id" component={SingleProduct} />
-                            <Route  excat path="/orderhistory" component={OrderHistory} />
-                            <Route exact path="/success" component={SuccessPage} />
+                            <Route  exact path="/login" component={Login} />
+                            <Route  exact path="/signup" component={Signup} />
+                            <Route  exact path="/products/:id" component={SingleProduct} />
+                            <Route  exact path="/orderhistory" component={OrderHistory} />
+                            <Route  exact path="/success" component={SuccessPage} />
+                            <Route component={NoMatch}/>
                         </Switch>
                     </div>
                     <Footer/>

@@ -1,6 +1,8 @@
 import decode from 'jwt-decode';
 
+// create class for authorization
 class AuthService {
+  //get the shoppers profile
   getProfile() {
     return decode(this.getToken());
   }

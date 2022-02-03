@@ -168,21 +168,3 @@ function OrderHistory() {
 }
 
 export default OrderHistory;
-
-/*
-
-                                <ListItem primary="Mantis Coffee" secondary="4"></ListItem>
-                                <ListItem primary="Mantis Mug" secondary="1"></ListItem>
-                                <ListItem primary="Mantis Plushie" secondary="1"></ListItem>
-                                <ListItem primary="Mantis Doodad" secondary="1"></ListItem>
-                                <ListItem primary="Mantis Thingamajig" secondary="4"></ListItem>
-
-      purchaseDate
-      products{
-        _id
-        name
-        description
-        image
-        price
-        quantity
-*/

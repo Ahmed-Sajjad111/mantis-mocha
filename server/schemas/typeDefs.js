@@ -1,11 +1,13 @@
 const { gql } = require('apollo-server-express')
 
 const typeDefs = gql`
+  # category type def
   type Category {
     _id: ID
     name: String
   }
 
+  # product type def
   type Product {
     _id: ID
     name: String
@@ -16,12 +18,15 @@ const typeDefs = gql`
     category: Category
   }
 
+  # order type def
   type Order {
     _id: ID
     purchaseDate: String
     products: [Product]
+    purchaseQuantity: [Int]
   }
 
+  # shopper type def
   type Shopper {
     _id: ID
     firstName: String
@@ -31,10 +36,12 @@ const typeDefs = gql`
     orders: [Order]
   }
 
+  # checkout type def
   type Checkout {
     session: ID
   }
 
+  # authorization type def
   type Auth {
     token: ID
     shopper: Shopper
@@ -52,9 +59,9 @@ const typeDefs = gql`
 
   type Mutation {
     addShopper(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    addOrder(products: [ID]!): Order
+    addOrder(products: [ID]!, purchaseQuantity: [Int]!): Order
     updateShopper(firstName: String, lastName: String, email: String, password: String): Shopper
-    updateProductQuantity(_id: ID!, quantity: Int!): Product
+    updateProductQuantity(_id: ID!, quantity: Int!, removeQuantity: Int!): Product
     login(email: String!, password: String!): Auth
   }
 

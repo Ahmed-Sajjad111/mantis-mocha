@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
+// categories help shoppers sort though products
 const categorySchema = new Schema({
     name: {
         type: String,

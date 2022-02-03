@@ -8,6 +8,7 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 const CartItem = ({ item }) => {
     const dispatch = useDispatch();
 
+    // removes cart item via id
     const removeFromCart = (item) => {
         dispatch({
             type: REMOVE_FROM_CART,
@@ -16,8 +17,10 @@ const CartItem = ({ item }) => {
         idbPromise("cart", "delete", { ...item });
     };
 
+    // when users adds or decreases product quantity in cart, quantity number updates
     const onChange = (e) => {
         const value = e.target.value;
+        // removes item from cart if quantity is 0
         if (value === "0") {
             dispatch({
                 type: REMOVE_FROM_CART,
@@ -74,38 +77,3 @@ const CartItem = ({ item }) => {
 };
 
 export default CartItem;
-
-/*
-<div className="flex-row">
-    <div>
-        <img src={`/images/${item.image}`} alt="" />
-    </div>
-    <div>
-        <div>
-            {item.name}, ${item.price}
-        </div>
-        <div>
-            <span>Qty:</span>
-            <input type="number" placeholder="1" value={item.purchaseQuantity} onChange={onChange} />
-            <span role="img" aria-label="trash" onClick={() => removeFromCart(item)}>
-                🗑️
-            </span>
-        </div>
-    </div>
-</div>;
-
-                    <Box
-                        src={`/images/${item.image}`}
-                        alt="cart image"
-                        sx={{
-                            height: 75,
-                            width: 75,
-                            maxHeight: { xs: 30, sm: 75 },
-                            maxWidth: { xs: 30, sm: 75 },
-                            mx: "auto",
-                            mb: 2,
-                        }}
-                    />
-
-
-*/

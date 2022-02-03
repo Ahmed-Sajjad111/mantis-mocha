@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
+// model is for the store products, the products will populate the product card to be rendered on the front end
 const productSchema = new Schema({
     name: {
         type: String,

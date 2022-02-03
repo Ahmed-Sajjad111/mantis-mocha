@@ -4,6 +4,7 @@ const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
 const Order = require('./Order');
 
+// the user (shopper) model
 const shopperSchema = new Schema({
     firstName: {
         type: String,
