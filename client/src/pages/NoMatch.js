@@ -3,6 +3,7 @@ import { Box, Typography, Button } from "@mui/material";
 import logo from "../themes/mocha.png";
 import { Link } from "react-router-dom";
 
+// this page renders on an unrecognized route attempt
 function NoMatch() {
   return (
     <Box

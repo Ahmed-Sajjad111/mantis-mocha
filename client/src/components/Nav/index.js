@@ -12,6 +12,8 @@ function Nav() {
                 <Grid container>
                     <Grid item xs={12}>
                         <Toolbar sx={{ display: "flex", justifyContent: "flex-end" }}>
+
+                            {/* allows user to see prior orders page */}
                             <Link to='/orderhistory' style={{ textDecoration: 'none' }}>
                                 <Button color="success">
                                     <Typography textAlign="center">Order History</Typography>

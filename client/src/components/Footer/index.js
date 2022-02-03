@@ -10,6 +10,8 @@ function Footer() {
                         2022 The Coffee Shop <span role="img" aria-label="coffee emoji">☕</span> , Inc.
                     </Typography>
                 </Grid>
+
+                {/* our team profile pictures */}
                 <Grid item xs={4}>
                     <Stack direction="row" spacing={.25} sx={{ mt:{xs: 0, sm: 1}, justifyContent: "right" }} mt={1} mr={1}>
                         <a href="https://github.com/mjbc53" target="_blank" rel="noopener noreferrer">

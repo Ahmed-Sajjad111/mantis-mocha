@@ -17,6 +17,8 @@ function Header() {
   const state = useSelector(state => state)
 
   const handleChange = (event) => {
+
+    // these themes are a way for customers to personalize their account page
     const newTheme = event.target.value
 
     switch (newTheme) {

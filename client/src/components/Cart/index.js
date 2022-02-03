@@ -12,6 +12,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
 import mochaMantis from "../../themes/mocha.png";
 
+// this stripe key is for testing only
 const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
 const Cart = () => {
@@ -20,6 +21,7 @@ const Cart = () => {
     const state = useSelector(selectState);
     const [getCheckout, { data }] = useLazyQuery(CHECKOUT);
 
+    // if data from LazyQuery, create a new checkout session & redirect to checkout
     useEffect(() => {
         if (data) {
             stripePromise.then((res) => {
@@ -28,6 +30,7 @@ const Cart = () => {
         }
     }, [data]);
 
+   // get all products for cart
     useEffect(() => {
         async function getCart() {
             const cart = await idbPromise("cart", "get");
@@ -39,11 +42,12 @@ const Cart = () => {
         }
     }, [state.cart.length, dispatch]);
 
+    // open/close cart
     function toggleCart() {
         dispatch({ type: TOGGLE_CART });
     }
 
-    
+    // adds item prices for a total in cart
     function calculateTotal() {
         let sum = 0;
         state.cart.forEach((item) => {
@@ -52,6 +56,7 @@ const Cart = () => {
         return sum.toFixed(2);
     }
 
+    // when user is ready to checkout, product ids are collected for the payment page
     function submitCheckout() {
         const productIds = [];
 

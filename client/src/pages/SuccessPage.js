@@ -4,6 +4,7 @@ import { ADDORDER } from "../utils/mutations";
 import { idbPromise } from "../utils/helpers";
 import { Box, Typography } from "@mui/material";
 
+// this page will render after a user successfully pays with the stripe api, the page redirect to home after notifying user
 function SuccessPage() {
   const [addOrder] = useMutation(ADDORDER);
 

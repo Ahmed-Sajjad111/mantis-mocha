@@ -10,6 +10,7 @@ function Signup(props) {
     const [formState, setFormState] = useState({ email: "", password: "" });
     const [addShopper] = useMutation(ADDSHOPPER);
 
+    // collects form data and creates a new user authentication token
     const handleFormSubmit = async (event) => {
         event.preventDefault();
         const mutationResponse = await addShopper({
