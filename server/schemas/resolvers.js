@@ -69,7 +69,7 @@ const resolvers = {
     //use stripes to generate products and check out
     checkout: async (parent, args, context) => {
       //get the url of the page
-      const url = new URL(context.headers.referer).origin;
+      const url = new URL(context.headers.referer).origin
 
       //create new order with products
       const order = new Order ({products: args.products})
@@ -83,8 +83,7 @@ const resolvers = {
         //generate product id
         const product = await stripe.products.create({
           name: products[i].name,
-          description: products[i].description,
-          images: [`${url}/images/${products[i].image}`]
+          description: products[i].description
         })
         //generate price
         const price = await stripe.prices.create({
