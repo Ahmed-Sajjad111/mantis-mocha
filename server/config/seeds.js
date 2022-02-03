@@ -101,43 +101,11 @@ db.once('open', async () => {
         },
         {
             name: "Lisa's Lucious Coffee",
-            category: categories[1]._id,
+            category: categories[2]._id,
             description: 'Froth, macchiato skinny, black, half and half, caffeine brewed sugar foam seasonal siphon french press. Eu, single origin irish espresso sweet fair trade coffee. Coffee percolator turkish cup single origin trifecta frappuccino. Ut percolator, sugar, aromatic in, bar , filter that irish qui foam aged. Skinny organic, a filter, beans acerbic medium flavour whipped eu doppio.',
             image: 'CoffeeImage3.jpg',
             price: 15.99,
             quantity: 100
-        },
-        {
-            name: "Margret's Mom Coffee",
-            category: categories[2]._id,
-            description: 'Froth, macchiato skinny, black, half and half, caffeine brewed sugar foam seasonal siphon french press. Eu, single origin irish espresso sweet fair trade coffee. Coffee percolator turkish cup single origin trifecta frappuccino. Ut percolator, sugar, aromatic in, bar , filter that irish qui foam aged. Skinny organic, a filter, beans acerbic medium flavour whipped eu doppio.',
-            image: 'CoffeeImage2.jpg',
-            price: 16.99,
-            quantity: 50
-        },
-        {
-            name: "Nancy's Normal Coffee",
-            category: categories[2]._id,
-            description: 'Froth, macchiato skinny, black, half and half, caffeine brewed sugar foam seasonal siphon french press. Eu, single origin irish espresso sweet fair trade coffee. Coffee percolator turkish cup single origin trifecta frappuccino. Ut percolator, sugar, aromatic in, bar , filter that irish qui foam aged. Skinny organic, a filter, beans acerbic medium flavour whipped eu doppio.',
-            image: 'CoffeeImage1.jpg',
-            price: 17.99,
-            quantity: 50
-        },
-        {
-            name: "Oscar's Opulent Coffee",
-            category: categories[2]._id,
-            description: 'Froth, macchiato skinny, black, half and half, caffeine brewed sugar foam seasonal siphon french press. Eu, single origin irish espresso sweet fair trade coffee. Coffee percolator turkish cup single origin trifecta frappuccino. Ut percolator, sugar, aromatic in, bar , filter that irish qui foam aged. Skinny organic, a filter, beans acerbic medium flavour whipped eu doppio.',
-            image: 'CoffeeImage3.jpg',
-            price: 18.99,
-            quantity: 50
-        },
-        {
-            name: "Peter's Piping Coffee",
-            category: categories[2]._id,
-            description: 'Froth, macchiato skinny, black, half and half, caffeine brewed sugar foam seasonal siphon french press. Eu, single origin irish espresso sweet fair trade coffee. Coffee percolator turkish cup single origin trifecta frappuccino. Ut percolator, sugar, aromatic in, bar , filter that irish qui foam aged. Skinny organic, a filter, beans acerbic medium flavour whipped eu doppio.',
-            image: 'CoffeeImage2.jpg',
-            price: 19.99,
-            quantity: 50
         },
         {
             name: "Quincy's Questionable Coffee",
@@ -157,7 +125,7 @@ db.once('open', async () => {
         },
         {
             name: "Stacy's Stupid Coffee",
-            category: categories[3]._id,
+            category: categories[2]._id,
             description: 'Froth, macchiato skinny, black, half and half, caffeine brewed sugar foam seasonal siphon french press. Eu, single origin irish espresso sweet fair trade coffee. Coffee percolator turkish cup single origin trifecta frappuccino. Ut percolator, sugar, aromatic in, bar , filter that irish qui foam aged. Skinny organic, a filter, beans acerbic medium flavour whipped eu doppio.',
             image: 'CoffeeImage4.jpg',
             price: 25.99,
