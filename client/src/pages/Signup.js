@@ -3,10 +3,9 @@ import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
 import { ADDSHOPPER } from "../utils/mutations";
-import { Alert, Box, TextField, Button, FormControl, Typography, IconButton } from "@mui/material";
+import { Alert, Box, TextField, Button, FormControl, Typography, IconButton, Collapse } from "@mui/material";
 import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
-import CloseIcon from '@mui/icons-material/Close';
-
+import CloseIcon from "@mui/icons-material/Close";
 
 function Signup(props) {
     const [formState, setFormState] = useState({ email: "", password: "" });
@@ -33,20 +32,20 @@ function Signup(props) {
             });
 
             if (error) {
-                throw new Error('something went wrong!')
+                throw new Error("something went wrong!");
             }
             const token = mutationResponse.data.addShopper.token;
             Auth.login(token);
         } catch (e) {
-            console.error(e)
-            setShowAlert(true)
+            console.error(e);
+            setShowAlert(true);
         }
         setFormState({
-            email: '',
-            password: '',
-            firstName: '',
-            lastName: '',
-            showAlert: false
+            email: "",
+            password: "",
+            firstName: "",
+            lastName: "",
+            showAlert: false,
         });
     };
 
@@ -71,7 +70,7 @@ function Signup(props) {
                 flexDirection: "column",
                 px: 4,
                 mb: 10,
-                height: "100%"
+                height: "100%",
             }}
         >
             <Link to="/login" style={{ textDecoration: "none" }}>
@@ -133,21 +132,28 @@ function Signup(props) {
                     sx={{ width: "90%", mx: "auto" }}
                 />
             </FormControl>
-            {error? (
-            <Alert 
-                action={
-                    <IconButton
-                        aria-label="close"
-                        color="inherit"
-                        size="small"
-                        onClick={() => {setShowAlert(false)}}
+            {error ? (
+                <Collapse in={showAlert}>
+                    <Alert
+                        variant="filled"
+                        severity="error"
+                        action={
+                            <IconButton
+                                aria-label="close"
+                                color="inherit"
+
+                                size="small"
+                                onClick={() => {
+                                    setShowAlert(false);
+                                }}
+                            >
+                                <CloseIcon fontSize="inherit" />
+                            </IconButton>
+                        }
                     >
-                        <CloseIcon fontSize="inherit"/>
-                    </IconButton>
-                }
-            >
-                Something went wrong if your signup!
-            </Alert>
+                        Something went wrong with your signup!
+                    </Alert>
+                </Collapse>
             ) : null}
             <Button
                 variant="contained"
