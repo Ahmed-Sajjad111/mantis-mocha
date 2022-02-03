@@ -9,6 +9,8 @@ import MintTheme from "../../themes/mint";
 import IceTheme from "../../themes/ice";
 import DarkBrewTheme from "../../themes/dark";
 import MantisTheme from "../../themes/mantis";
+import DecafTheme from "../../themes/decaf";
+import SteamyTheme from "../../themes/steamy"
 
 
 
@@ -46,6 +48,16 @@ function Header() {
         return dispatch({
           type: CHANGE_PAGE_THEME,
           theme: MantisTheme
+        });
+      case DecafTheme:
+        return dispatch({
+          type: CHANGE_PAGE_THEME,
+          theme: DecafTheme
+        });
+      case SteamyTheme:
+        return dispatch({
+          type: CHANGE_PAGE_THEME,
+          theme: SteamyTheme
         });
       default:
         return dispatch({
@@ -85,6 +97,8 @@ function Header() {
               <MenuItem value={IceTheme} id="ice">Icy Coffee</MenuItem>
               <MenuItem value={DarkBrewTheme} id="dark">Dark Brew</MenuItem>
               <MenuItem value={MantisTheme} id="melon">Mantis Melon</MenuItem>
+              <MenuItem value={DecafTheme} id="melon">Decaf</MenuItem>
+              <MenuItem value={SteamyTheme} id="melon">Steamy Cappuccino</MenuItem>
             </TextField>
           </FormControl>
         </Toolbar>
