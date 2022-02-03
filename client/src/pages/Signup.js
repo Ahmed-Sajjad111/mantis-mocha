@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
 import { ADDSHOPPER } from "../utils/mutations";
-import { Alert, Box, TextField, Button, FormControl, Typography } from "@mui/material";
+import { Alert, Box, TextField, Button, FormControl, Typography, IconButton } from "@mui/material";
 import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
+import CloseIcon from '@mui/icons-material/Close';
+
 
 function Signup(props) {
     const [formState, setFormState] = useState({ email: "", password: "" });
@@ -43,7 +45,8 @@ function Signup(props) {
             email: '',
             password: '',
             firstName: '',
-            lastName: ''
+            lastName: '',
+            showAlert: false
         });
     };
 
@@ -130,7 +133,22 @@ function Signup(props) {
                     sx={{ width: "90%", mx: "auto" }}
                 />
             </FormControl>
-            <Alert onClose={() => setShowAlert(false) }>Something went wrong if your signup!</Alert>
+            {error? (
+            <Alert 
+                action={
+                    <IconButton
+                        aria-label="close"
+                        color="inherit"
+                        size="small"
+                        onClick={() => {setShowAlert(false)}}
+                    >
+                        <CloseIcon fontSize="inherit"/>
+                    </IconButton>
+                }
+            >
+                Something went wrong if your signup!
+            </Alert>
+            ) : null}
             <Button
                 variant="contained"
                 onClick={handleFormSubmit}
