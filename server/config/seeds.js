@@ -19,14 +19,6 @@ db.once('open', async () => {
 
     const products = await Product.insertMany([
         {
-            name: "Felix's Finest Coffee",
-            category: categories[0]._id,
-            description: 'Froth, macchiato skinny, black, half and half, caffeine brewed sugar foam seasonal siphon french press. Eu, single origin irish espresso sweet fair trade coffee. Coffee percolator turkish cup single origin trifecta frappuccino. Ut percolator, sugar, aromatic in, bar , filter that irish qui foam aged. Skinny organic, a filter, beans acerbic medium flavour whipped eu doppio.',
-            image: 'CoffeeImage1.jpg',
-            price: 19.99,
-            quantity: 100
-        },
-        {
             name: "Adrian's Arabica Coffee",
             category: categories[0]._id,
             description: 'Froth, macchiato skinny, black, half and half, caffeine brewed sugar foam seasonal siphon french press. Eu, single origin irish espresso sweet fair trade coffee. Coffee percolator turkish cup single origin trifecta frappuccino. Ut percolator, sugar, aromatic in, bar , filter that irish qui foam aged. Skinny organic, a filter, beans acerbic medium flavour whipped eu doppio.',

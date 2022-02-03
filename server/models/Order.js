@@ -7,6 +7,9 @@ const orderSchema = new Schema({
         type: Date,
         default: Date.now
     },
+    purchaseQuantity: {
+        type: Array
+    },
     products: [
         {
             type: Schema.Types.ObjectId,

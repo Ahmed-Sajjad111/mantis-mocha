@@ -1,20 +1,37 @@
 import React, { useEffect } from "react";
 import { useMutation } from "@apollo/client";
-import { ADDORDER } from "../utils/mutations";
+import { ADDORDER, UPDATEQUANTITY } from "../utils/mutations";
 import { idbPromise } from "../utils/helpers";
 import { Box, Typography } from "@mui/material";
 
 // this page will render after a user successfully pays with the stripe api, the page redirect to home after notifying user
 function SuccessPage() {
   const [addOrder] = useMutation(ADDORDER);
+  const [updateQuantity] = useMutation(UPDATEQUANTITY)
 
   useEffect(() => {
     async function saveOrder() {
       const cart = await idbPromise("cart", "get");
       const products = cart.map((item) => item._id);
+      const purchaseQuantity = cart.map((item) => item.purchaseQuantity)
+
+      console.log(products)
+
+      for(const product of cart){
+        console.log(product._id, product.quantity, product.purchaseQuantity)
+        const { data } = await updateQuantity({ 
+          variables: 
+          { 
+            id: product._id,
+            quantity:  product.quantity,
+            removeQuantity: product.purchaseQuantity
+          }})
+          console.log(data)
+      }
 
       if (products.length) {
-        const { data } = await addOrder({ variables: { products } });
+        const { data } = await addOrder({ variables: { products, purchaseQuantity} });
+        console.log(data)
         const productData = data.addOrder.products;
 
         productData.forEach((item) => {
@@ -27,8 +44,8 @@ function SuccessPage() {
       }, 3000);
     }
 
-    saveOrder();
-  }, [addOrder]);
+    saveOrder()
+  }, [addOrder, updateQuantity]);
 
   return (
     <Box

@@ -17,8 +17,7 @@ const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
 const Cart = () => {
     const dispatch = useDispatch();
-    const selectState = (state) => state;
-    const state = useSelector(selectState);
+    const state = useSelector(state => state);
     const [getCheckout, { data }] = useLazyQuery(CHECKOUT);
 
     // if data from LazyQuery, create a new checkout session & redirect to checkout
