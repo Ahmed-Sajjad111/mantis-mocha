@@ -17,6 +17,7 @@ db.once('open', async () => {
 
     await Product.deleteMany();
 
+    // product seeds
     const products = await Product.insertMany([
         {
             name: "Adrian's Arabica Coffee",
@@ -273,6 +274,7 @@ db.once('open', async () => {
 
     await Shopper.deleteMany();
 
+    // shopper seeds
     await Shopper.create(
         {
             firstName:'Trisha',
