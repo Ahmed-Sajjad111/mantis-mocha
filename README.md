@@ -1,7 +1,7 @@
 [![Apache-2.0](https://img.shields.io/badge/Apache-License-blue.svg)](https://opensource.org/licenses/Apache-2.0)  [![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://opensource.org/)[![NPM Version](https://img.shields.io/npm/v/npm.svg?style=flat)]()
 
 # Mantis Mocha
-![Screenshot (10)](https://user-images.githubusercontent.com/88279562/151873213-49d4f187-12c1-4ff0-90dc-1f6c1563dde0.jpg)
+![Screenshot (10)](/assets/mantis-website-preview.gif)
 
 ### *Wake up, and smell the coffee! ☕*
   
